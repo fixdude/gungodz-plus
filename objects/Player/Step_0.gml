@@ -1,0 +1,1 @@
+InputDirection(-1, INPUT_CLUSTER.NAVIGATION, playerIndex);

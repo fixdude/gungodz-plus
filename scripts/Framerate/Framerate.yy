@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"Framerate",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"Framerate",
+  "parent":{
+    "name":"Extra",
+    "path":"folders/Scripts/Extra.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
