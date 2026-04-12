@@ -749,7 +749,7 @@
   "packageId":"",
   "parent":{
     "name":"Steamworks",
-    "path":"folders/Steamworks.yy",
+    "path":"folders/Extensions/Steamworks.yy",
   },
   "productId":"",
   "resourceType":"GMExtension",

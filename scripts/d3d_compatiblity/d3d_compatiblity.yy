@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"d3d_compatiblity",
   "parent":{
-    "name":"D3D",
-    "path":"folders/Kinda-Extensions/D3D.yy",
+    "name":"Draw",
+    "path":"folders/Scripts/Draw.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

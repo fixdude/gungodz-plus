@@ -14,7 +14,7 @@ if init == true
 	if instance_exists(LEVEL4) || instance_exists(LEVEL5)
 	{
 		d3d_set_fog(false, c_black, -10000, 10000);
-		d3d_set_hidden(0);
+		d3d_set_hidden(false);
 		draw_sprite_ext(bakSky4, 0, (Player.angle / 360) * 640, 0, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(bakSky4, 0, ((Player.angle / 360) * 640) - 640, 0, 1, 1, 0, c_white, 1);
 		draw_sprite_ext(bakSky4, 0, ((Player.angle / 360) * 640) - 1280, 0, 1, 1, 0, c_white, 1);
@@ -34,9 +34,9 @@ if init == true
 				if night > 13 && !instance_exists(SUPERCREDITS)
 					instance_create(0, 0, SUPERCREDITS);
 				
-				draw_background_ext(221, (Player.angle / 360) * 640, 0, 1, 1, 0, c_white, night / 2);
-				draw_background_ext(221, ((Player.angle / 360) * 640) - 640, 0, 1, 1, 0, c_white, night / 2);
-				draw_background_ext(221, ((Player.angle / 360) * 640) - 1280, 0, 1, 1, 0, c_white, night / 2);
+				draw_background_ext(bakSkyNight, (Player.angle / 360) * 640, 0, 1, 1, 0, c_white, night / 2);
+				draw_background_ext(bakSkyNight, ((Player.angle / 360) * 640) - 640, 0, 1, 1, 0, c_white, night / 2);
+				draw_background_ext(bakSkyNight, ((Player.angle / 360) * 640) - 1280, 0, 1, 1, 0, c_white, night / 2);
 			}
 		}
 		

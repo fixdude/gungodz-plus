@@ -6,7 +6,7 @@
   "name":"Steamworks_Definitions",
   "parent":{
     "name":"Steamworks",
-    "path":"folders/Steamworks.yy",
+    "path":"folders/Extensions/Steamworks.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

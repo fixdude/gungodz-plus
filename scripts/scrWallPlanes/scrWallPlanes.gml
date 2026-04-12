@@ -12,7 +12,7 @@ function scrWallPlanes()
 				x1 = round(x);
 				y1 = round(y);
 				x2 = round(x + 32);
-				y2 = round(y);
+				y2 = y1;
 				tt1 = other.tt1;
 				tt2 = other.tt2;
 				h = other.h;

@@ -13,7 +13,7 @@ if d != undefined
 }
 
 if friction < 0.5
-	friction += 0.01;
+	friction += 0.01 fmt;
 else
 	friction = 0.5;
 	

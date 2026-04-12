@@ -1,4 +1,10 @@
 // It's named macros but it can also contain other stuff.
+// actually it mostly doesn't even have actual macros
+
+#macro use_native_cursor extension_exists("native_cursor") && os_type == os_windows
+#macro use_steam extension_exists("Steamworks")
+
+globalvar steam_on;
 
 #region Compatibility
 

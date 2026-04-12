@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"mskBarsH",
+    "path":"sprites/mskBarsH/mskBarsH.yy",
+  },
   "spriteMaskId":null,
   "visible":false,
 }

@@ -13,6 +13,9 @@ scrLevels();
 lev = 1;
 wld = 1;
 sensitivity = 100;
+focus = true;
+cur = native_cursor_create_from_sprite(sprCursor);
+native_cursor_set(cur);
 
 repeat NUM_WORLDS
 {
