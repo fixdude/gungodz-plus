@@ -594,7 +594,6 @@
     {"id":{"name":"scrWallPlanes","path":"scripts/scrWallPlanes/scrWallPlanes.yy",},},
     {"id":{"name":"scrWeps","path":"scripts/scrWeps/scrWeps.yy",},},
     {"id":{"name":"Steamworks_Definitions","path":"scripts/Steamworks_Definitions/Steamworks_Definitions.yy",},},
-    {"id":{"name":"shd_billboard","path":"shaders/shd_billboard/shd_billboard.yy",},},
     {"id":{"name":"sndBazooka","path":"sounds/sndBazooka/sndBazooka.yy",},},
     {"id":{"name":"sndBitchDie","path":"sounds/sndBitchDie/sndBitchDie.yy",},},
     {"id":{"name":"sndBitchSee1","path":"sounds/sndBitchSee1/sndBitchSee1.yy",},},
