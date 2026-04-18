@@ -7,7 +7,6 @@ walk += speed;
 
 if keyboard_check_pressed(vk_space)
 	zspeed = 6;
-	
 if zspeed > -10
 	zspeed -= 0.35;
 	
