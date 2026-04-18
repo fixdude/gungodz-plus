@@ -1,3 +1,5 @@
+scr_updateAchievements();
+
 if !instance_exists(AchievPopup) && !ds_queue_empty(achievQueue)
 {
 	with instance_create(0, 0, AchievPopup)
@@ -6,8 +8,6 @@ if !instance_exists(AchievPopup) && !ds_queue_empty(achievQueue)
 		event_user(0);
 	}
 }
-
-scr_updateAchievements();
 
 if use_native_cursor
 	native_cursor_update();

@@ -12,10 +12,6 @@ audio_emitter_bus(sfx_3d_emitter, sfx_bus);
 
 audio_emitter_falloff(sfx_3d_emitter, 300, 600, 1.2);
 
-audio_emitter_gain(music_emitter, 0, 0);
-audio_emitter_gain(sfx_emitter, 0, 0);
-audio_emitter_gain(sfx_3d_emitter, 0, 0);
-
 currentMusic = noone;
 musicStream = noone;
 musicHandle = noone;
