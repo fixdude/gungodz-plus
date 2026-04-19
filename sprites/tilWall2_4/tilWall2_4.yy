@@ -85,8 +85,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"tileTexGroup",
+    "path":"texturegroups/tileTexGroup",
   },
   "type":0,
   "VTile":false,

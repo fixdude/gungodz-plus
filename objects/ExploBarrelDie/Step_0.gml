@@ -1,4 +1,4 @@
-var ir = round(image_index);
+var ir = floor(image_index);
 if ind != ir
 {
 	ind = ir;

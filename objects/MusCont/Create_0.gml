@@ -10,7 +10,8 @@ sfx_3d_emitter = audio_emitter_create();
 audio_emitter_bus(sfx_emitter, sfx_bus);
 audio_emitter_bus(sfx_3d_emitter, sfx_bus);
 
-audio_emitter_falloff(sfx_3d_emitter, 300, 600, 1.2);
+audio_falloff_set_model(audio_falloff_linear_distance);
+audio_emitter_falloff(sfx_3d_emitter, 400, 800, 1);
 
 currentMusic = noone;
 musicStream = noone;
@@ -26,5 +27,5 @@ play = function(mus)
 
 	currentMusic = mus;
 	musicHandle = audio_play_sound_on(music_emitter, mus, true, 100);
-	//sound_volume(mus, 0.2);
+	sound_volume(mus, db_read(global.dbSettings, 0.8, "music"));
 }

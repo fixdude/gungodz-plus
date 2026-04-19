@@ -5,10 +5,12 @@ if angle < 0
 
 walk += speed;
 
+/*
 if keyboard_check_pressed(vk_space)
 	zspeed = 6;
 if zspeed > -10
 	zspeed -= 0.35;
+*/
 	
 z += zspeed;
 if z < 16
@@ -54,7 +56,7 @@ if dead == false && UberCont.focus
 	
 	d = InputX(INPUT_CLUSTER.LOOKING, playerIndex);
 	angle -= d / v;
-	if UberCont.focus
+	if window_mouse_get_locked()
 	{
 		d = window_mouse_get_delta_x();
 		angle -= d / v;

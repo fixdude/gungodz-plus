@@ -1,6 +1,6 @@
 var mx = InputMouseGuiX(), my = InputMouseGuiY();
 if InputMousePressed(mb_left)
-&& x > mx && y > my && x < mx + sprite_width && y < my + sprite_height
+&& mx > x && my > y && mx < x + sprite_width && my < y + sprite_height
 {
 	UberCont.lev = lev;
 	UberCont.wld = wld;

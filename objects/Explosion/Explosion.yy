@@ -16,7 +16,10 @@
     "name":"Hazards",
     "path":"folders/Objects/Assets/Hazards.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"plane",
+    "path":"objects/plane/plane.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -42,5 +45,5 @@
     "name":"mskExplosion",
     "path":"sprites/mskExplosion/mskExplosion.yy",
   },
-  "visible":true,
+  "visible":false,
 }

@@ -1,1 +1,0 @@
-image_index = global.sprWall4_4_alpha;

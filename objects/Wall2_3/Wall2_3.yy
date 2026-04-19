@@ -10,8 +10,8 @@
     "path":"folders/Objects/Assets/Walls/2.yy",
   },
   "parentObjectId":{
-    "name":"Wall",
-    "path":"objects/Wall/Wall.yy",
+    "name":"WallH",
+    "path":"objects/WallH/WallH.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -30,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":true,
-  "spriteId":null,
+  "spriteId":{
+    "name":"tilWall2_3",
+    "path":"sprites/tilWall2_3/tilWall2_3.yy",
+  },
   "spriteMaskId":null,
   "visible":false,
 }

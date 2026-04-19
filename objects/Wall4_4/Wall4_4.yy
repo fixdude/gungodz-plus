@@ -1,9 +1,7 @@
 {
   "$GMObject":"",
   "%Name":"Wall4_4",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"Wall4_4",
   "overriddenProperties":[],
@@ -11,7 +9,10 @@
     "name":"4",
     "path":"folders/Objects/Assets/Walls/4.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"WallH",
+    "path":"objects/WallH/WallH.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -28,8 +29,11 @@
   "properties":[],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
-  "solid":false,
-  "spriteId":null,
+  "solid":true,
+  "spriteId":{
+    "name":"sprWall4_4",
+    "path":"sprites/sprWall4_4/sprWall4_4.yy",
+  },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

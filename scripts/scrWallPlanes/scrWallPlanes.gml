@@ -166,9 +166,9 @@ function scrWallPlanes()
 		}
 	}
 
-	//scrPipePlanes();
-	//scrExitPlanes();
+	scrPipePlanes();
+	scrExitPlanes();
 
-	//if !instance_exists(LEVEL1)
-	//	scrStartPlanes();
+	if !instance_exists(LEVEL1)
+		scrStartPlanes();
 }
