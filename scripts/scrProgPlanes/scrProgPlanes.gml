@@ -18,18 +18,11 @@ function scrProgPlanes(start = true)
 		with start ? Start : Exit
 		{
 			tt1 = sprite_get_texture(tilExitDoor, 0);
-			uvs1 = sprite_get_uvs(tilExitDoor, 0);
 			
 			if UberCont.wld == 2
-			{
 				tt2 = sprite_get_texture(tilWall2_1, 1);
-				uvs2 = sprite_get_uvs(tilWall2_1, 1);
-			}
 			else
-			{
 				tt2 = sprite_get_texture(sprWall4_1, 1);
-				uvs2 = sprite_get_uvs(sprWall4_1, 1);
-			}
 			
 			var doorH = start ? StartDoorH : ExitDoorH;
 			var doorV = start ? StartDoorV : ExitDoorV;
@@ -44,9 +37,7 @@ function scrProgPlanes(start = true)
 					x2 = round(x + 32);
 					y2 = round(y);
 					tt1 = other.tt1;
-					uvs1 = other.uvs1;
 					tt2 = other.tt2;
-					uvs2 = other.uvs2;
 					h = 2;
 					
 					if l5
@@ -63,9 +54,7 @@ function scrProgPlanes(start = true)
 					x2 = round(x + 32);
 					y2 = round(y + 32);
 					tt1 = other.tt1;
-					uvs1 = other.uvs1;
 					tt2 = other.tt2;
-					uvs2 = other.uvs2;
 					h = 2;
 					
 					if l5
@@ -82,9 +71,7 @@ function scrProgPlanes(start = true)
 					x2 = round(x);
 					y2 = round(y + 32);
 					tt1 = other.tt1;
-					uvs1 = other.uvs1;
 					tt2 = other.tt2;
-					uvs2 = other.uvs2;
 					h = 2;
 					
 					if l5
@@ -101,9 +88,7 @@ function scrProgPlanes(start = true)
 					x2 = round(x + 32);
 					y2 = round(y + 32);
 					tt1 = other.tt1;
-					uvs1 = other.uvs1;
 					tt2 = other.tt2;
-					uvs2 = other.uvs2;
 					h = 2;
 					
 					if l5

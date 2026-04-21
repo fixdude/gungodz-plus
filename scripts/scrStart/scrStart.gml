@@ -56,13 +56,8 @@ function scrStart()
 	{
 		tt1 = sprite_get_texture(sprDoor, 0);
 		ttS = sprite_get_texture(sprDoorS, 0);
-		uvs1 = sprite_get_uvs(sprDoor, 0);
-		uvsS = sprite_get_uvs(sprDoorS, 0);
 	}
 	
 	with bar
-	{
 		tt1 = sprite_get_texture(sprBar, 0);
-		uvs1 = sprite_get_uvs(sprBar, 0);
-	}
 }

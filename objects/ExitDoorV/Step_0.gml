@@ -15,7 +15,6 @@ if ind != ir
 {
 	ind = ir;
 	tt1 = sprite_get_texture(sprite_index, ind);
-	uvs1 = sprite_get_uvs(sprite_index, ind);
 }
 
 if Player.wintime > 120

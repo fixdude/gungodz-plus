@@ -620,7 +620,6 @@
     {"id":{"name":"scrStart","path":"scripts/scrStart/scrStart.yy",},},
     {"id":{"name":"scrSuperCredits","path":"scripts/scrSuperCredits/scrSuperCredits.yy",},},
     {"id":{"name":"scrTile","path":"scripts/scrTile/scrTile.yy",},},
-    {"id":{"name":"scrUV","path":"scripts/scrUV/scrUV.yy",},},
     {"id":{"name":"scrWallPlanes","path":"scripts/scrWallPlanes/scrWallPlanes.yy",},},
     {"id":{"name":"scrWeps","path":"scripts/scrWeps/scrWeps.yy",},},
     {"id":{"name":"Steamworks_Definitions","path":"scripts/Steamworks_Definitions/Steamworks_Definitions.yy",},},

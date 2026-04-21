@@ -29,16 +29,23 @@ function __getAnchorY(anchor, h = Screen.height, pad = 0)
 		return h - pad;
 }
 
+#macro SCREEN_VSYNC_IS_SUPPORTED (os_type == os_windows || os_type == os_linux || os_type == os_macosx)
+#macro ___SCREEN_ENABLE_TRACE (GM_build_type == "run")
+
+function __screen_trace(str)
+{
+	if ___SCREEN_ENABLE_TRACE
+		show_debug_message($"Screen -> {debug_get_callstack(1)[1]}: {str}");
+}
+
 function __internalScreen()
 {
-	static width = 320;
-	static height = 200;
-	static aspect_ratio = 1.6;
-	static size = 200;
-	static vsync = false;
-	static antialiasing = 0;
-	static resizing = false;
-	static dragging = false;
+	static
+		width = 0, height = 0,
+		aspect_ratio = 1.6, size = 200,
+		vsync = false, antialiasing = 0,
+		resizing = false, dragging = false,
+		display_orientation = false;
 	
 	static _internal = {
 		draw_icon: false,
@@ -46,18 +53,46 @@ function __internalScreen()
 		yoff: 0
 	}
 	
-	static get = function()
-	{
-		return Screen;
-	}
-	
-	static sync = function()
+	static defaults = function(vs, swap_portrait = true)
 	{
 		with Screen
 		{
-			var ratio = aspect_ratio;
-			width = ratio * size;
-			height = size;
+			aspect_ratio = view_wport[0] / view_hport[0];
+			setVSync(vs);
+			sync(false, swap_portrait);
+		}
+	}
+
+	static sync = function(from_size = false, swap_portrait = true)
+	{
+		with Screen
+		{
+			antialiasing = display_aa;
+			vsync &= SCREEN_VSYNC_IS_SUPPORTED;
+			
+			if from_size == false
+			{
+				width = min(aspect_ratio * size, display_get_width());
+				height = min(size, display_get_height());
+			}
+			else
+			{
+				aspect_ratio = width / height;
+				size = height;
+			}
+			
+			display_orientation = getOrientation();
+			
+			// *OS will always handle flipping by itself
+			if swap_portrait == true
+			&& (display_orientation == display_portrait || display_orientation == display_portrait_flipped)
+			{
+				// Bitwise XOR swap
+				width = width ^ height;
+				height = width ^ height;
+				width = width ^ height;
+			}
+			
 			return self;
 		}
 	}
@@ -72,6 +107,12 @@ function __internalScreen()
 			if sprite_exists(Screen.captionConfig.icon.sprite_index)
 				draw_icon = true;
 		}
+		
+		camera_set_view_size(view_camera[0], Screen.width, Screen.height);
+		view_wport[0] = Screen.width;
+		view_hport[0] = Screen.height;
+		surface_resize(application_surface, view_wport[0], view_hport[0]);
+		
 		window_set_size(Screen.width, Screen.height);
 		return Screen;
 	}
@@ -89,6 +130,14 @@ function __internalScreen()
 		if is_numeric(ratio)
 			Screen.aspect_ratio = ratio;
 		return Screen;
+	}
+	
+	static getOrientation = function()
+	{
+		if os_browser
+			return browser_width < browser_height;
+		else
+			return display_get_orientation();
 	}
 	
 	static getRatio = function()
@@ -109,6 +158,11 @@ function __internalScreen()
 	
 	static setVSync = function(vs)
 	{
+		if !SCREEN_VSYNC_IS_SUPPORTED && vs == true
+		{
+			__screen_trace("WARNING: VSync is not supported on this device.");
+		}
+		
 		display_reset(display_aa, vs);
 		Screen.vsync = vs;
 		return Screen;
