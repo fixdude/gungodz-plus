@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"Screen",
+  "%Name":"__ScreenConfig",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"Screen",
+  "name":"__ScreenConfig",
   "parent":{
     "name":"Screen",
     "path":"folders/Kinda-Extensions/Screen.yy",

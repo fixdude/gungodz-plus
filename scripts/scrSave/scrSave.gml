@@ -93,9 +93,11 @@ function scrSave()
 function scrLoad()
 {
 	FORCEINLINE;
+	if !file_exists("gg1.bin") && !file_exists("gg2.bin")
+		return false;
 	var buff = buffer_load("gg1.bin"), typ = buffer_u8;
 	if !buffer_exists(buff)
-		return;
+		return false;
 	
 	buffer_seek(buff, buffer_seek_start, 0);
 	var savedata_version = buffer_read(buff, typ);
@@ -147,7 +149,7 @@ function scrLoad()
 	
 	var buff = buffer_load("gg2.bin"), typ = buffer_u32;
 	if !buffer_exists(buff)
-		return; // That's weird, but carry on
+		return false; // That's weird, but carry on
 		
 	with UberCont
 	{
@@ -163,4 +165,6 @@ function scrLoad()
 			diy++;
 		}
 	}
+	
+	return true;
 }
