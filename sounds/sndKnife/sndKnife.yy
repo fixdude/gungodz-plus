@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.3435147,
+  "duration":0.34351474,
   "exportDir":"",
   "name":"sndKnife",
   "parent":{

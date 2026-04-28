@@ -15,6 +15,9 @@ if InputMousePressed(mb_left)
 	if mus != -1
 		scrMusic(mus);
 
+	if wld == 2
+		lev = "1r2";
+		
 	window_mouse_set(window_get_width() / 2, window_get_height() / 2);
 	var roomName = $"lev{wld}_{lev}";
 	if wld == 4 && lev == 3

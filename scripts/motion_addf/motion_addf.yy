@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"motion_addf",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"motion_addf",
+  "parent":{
+    "name":"Utility",
+    "path":"folders/Scripts/Utility.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

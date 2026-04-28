@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.183492,
+  "duration":1.1834921,
   "exportDir":"",
   "name":"sndEnemy1Die",
   "parent":{

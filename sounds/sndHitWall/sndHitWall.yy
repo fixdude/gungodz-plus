@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.5169387,
+  "duration":0.51693875,
   "exportDir":"",
   "name":"sndHitWall",
   "parent":{

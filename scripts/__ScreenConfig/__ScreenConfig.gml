@@ -20,9 +20,9 @@ function __ScreenConfig()
 		
 		// Manual setup
 		/*
-		aspect_ratio = 16/10; // You can write it out like this
-		size = 200; // Default multiplier. The game size is (size * aspect_ratio)x(size)
-		// Example: 16:9 ratio with size 100 means the game is 178x100
+		aspect_ratio = 16/9; // You can write it out like this
+		size = 1080; // Default multiplier. The game size is (size * aspect_ratio)x(size)
+		// Example: 16:9 ratio with size 1080 means the game is 1920x1080
 		
 		vsync = true;
 		
@@ -35,6 +35,9 @@ function __ScreenConfig()
 		// This will automatically identify the game's display information based on the first room.
 		// If this is not suitable for your game, see the manual setup above
 		defaults(true);
+		
+		// Apply all settings, and center the window
+		apply(true);
 		
 		// CAPTION CONFIG
 		

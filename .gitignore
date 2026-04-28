@@ -63,3 +63,14 @@ Build
 
 # me
 Steamworks_sdk/*
+
+# These aren't ready yet (GM will error trying to load them from yyz when they don't exist, but it'll clean everything up)
+scripts/Interp
+scripts/GGMod
+scripts/GGZ
+scripts/scrGGRoom
+objects/_custom
+objects/_custom_enemy
+objects/_custom_pickup
+objects/_custom_plane
+

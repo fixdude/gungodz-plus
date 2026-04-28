@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrLOS",
   "parent":{
-    "name":"Utility",
-    "path":"folders/Scripts/Utility.yy",
+    "name":"Enemy",
+    "path":"folders/Scripts/Game/Enemy.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

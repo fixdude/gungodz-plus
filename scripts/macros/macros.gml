@@ -14,14 +14,15 @@ global.__objectDepths = ds_map_create();
 
 function object_get_depth(obj)
 {
+	FORCEINLINE;
 	var d = global.__objectDepths[? obj];
 	return d == undefined ? 0 : d;
 }
 
-function instance_create(x, y, obj)
+function instance_create(x, y, obj, var_struct = undefined)
 {
 	var myDepth = object_get_depth(obj);
-	return instance_create_depth(x, y, myDepth, obj);
+	return instance_create_depth(x, y, myDepth, obj, var_struct);
 }
 
 function draw_background_ext(sprite, x, y, xscale, yscale, rot, col, alpha)

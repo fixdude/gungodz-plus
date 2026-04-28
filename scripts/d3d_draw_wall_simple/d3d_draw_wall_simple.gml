@@ -41,17 +41,11 @@ function d3d_draw_wall_simple(x1, y1, z1, x2, y2, z2, tex = -1) {
 		var uvs = texture_get_uvs(tex);
 		
 		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3];
-		var perX = uvs[6], perY = uvs[7];
-		
-		var w = cr / perX;
-		var h = cb / perY;
-		var tr = w - (w * perX) - cl;
-		var tb = h - (h * perY) - ct;
 		
 		x1 += uvs[4]; // Left side trimming
-		x2 -= tr; // Right side trimming
-		y1 += uvs[5]; // Top side trimming
-		y2 -= tb; // Bottom side trimming
+		x2 -= uvs[4]; // Right side trimming
+		z1 += uvs[5]; // Top side trimming
+		z2 -= uvs[5]; // Bottom side trimming
 		
         vertex(vb, x1, y1, z1, nx, ny, 0, cl, ct, c_white, 1);
         vertex(vb, x2, y2, z1, nx, ny, 0, cr, ct, c_white, 1);

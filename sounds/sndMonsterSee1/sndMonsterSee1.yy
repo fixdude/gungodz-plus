@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.6297732,
+  "duration":0.62977326,
   "exportDir":"",
   "name":"sndMonsterSee1",
   "parent":{

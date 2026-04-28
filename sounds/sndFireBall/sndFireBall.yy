@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":1.9768707,
+  "duration":1.9768708,
   "exportDir":"",
   "name":"sndFireBall",
   "parent":{

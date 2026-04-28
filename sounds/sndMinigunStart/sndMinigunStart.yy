@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.3491609,
+  "duration":0.349161,
   "exportDir":"",
   "name":"sndMinigunStart",
   "parent":{

@@ -37,6 +37,10 @@ function d3d_draw_floor(x1, y1, z1, x2, y2, z2, tex = -1, hrepeat = 1, vrepeat =
         vb = vertex_create_buffer();
         vertex_begin(vb, format);
         
+		var uvs = texture_get_uvs(tex);
+		
+		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3];
+		
         __d3d_floor_internal(vb, x1, y1, z1, x2, y2, z2, hrepeat, vrepeat, c, a);
         
         vertex_end(vb);

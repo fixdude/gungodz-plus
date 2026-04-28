@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.5904081,
+  "duration":0.59040815,
   "exportDir":"",
   "name":"sndSoldierDie2",
   "parent":{

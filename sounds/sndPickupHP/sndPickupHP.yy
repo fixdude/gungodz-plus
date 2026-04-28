@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.870136,
+  "duration":0.8701361,
   "exportDir":"",
   "name":"sndPickupHP",
   "parent":{

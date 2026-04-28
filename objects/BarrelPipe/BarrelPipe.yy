@@ -11,7 +11,10 @@
     "name":"Pipes",
     "path":"folders/Objects/Assets/Pipes.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"GameObject",
+    "path":"objects/GameObject/GameObject.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

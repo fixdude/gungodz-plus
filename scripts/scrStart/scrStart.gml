@@ -1,13 +1,16 @@
 function scrStart()
 {
-	scrAchievement(ACHIEVEMENT.A1);/*
+	// Test queueing and popup
+	/*
+	scrAchievement(ACHIEVEMENT.A1);
 	scrAchievement(ACHIEVEMENT.A2);
 	scrAchievement(ACHIEVEMENT.A3);
 	scrAchievement(ACHIEVEMENT.A4);
 	scrAchievement(ACHIEVEMENT.A5);
 	scrAchievement(ACHIEVEMENT.A6);
 	scrAchievement(ACHIEVEMENT.A7);
-	scrAchievement(ACHIEVEMENT.A8);*/
+	scrAchievement(ACHIEVEMENT.A8);
+	*/
 	
 	if !instance_exists(LEVEL1)
 		sound_play(sndElevatorOpen);

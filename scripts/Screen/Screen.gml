@@ -32,20 +32,27 @@ function __getAnchorY(anchor, h = Screen.height, pad = 0)
 #macro SCREEN_VSYNC_IS_SUPPORTED (os_type == os_windows || os_type == os_linux || os_type == os_macosx)
 #macro ___SCREEN_ENABLE_TRACE (GM_build_type == "run")
 
-function __screen_trace(str)
+function __screen_trace()
 {
-	if ___SCREEN_ENABLE_TRACE
-		show_debug_message($"Screen -> {debug_get_callstack(1)[1]}: {str}");
+	if ___SCREEN_ENABLE_TRACE && argument_count
+	{
+		var str = "";
+		for (var i = 0; i < argument_count; i++)
+			str += string(argument[i]);
+		
+		show_debug_message($"Screen -> {str}");
+	}
 }
 
 function __internalScreen()
 {
 	static
 		width = 0, height = 0,
+		base_width = 0, base_height = 0,
 		aspect_ratio = 1.6, size = 200,
 		vsync = false, antialiasing = 0,
 		resizing = false, dragging = false,
-		display_orientation = false;
+		display_orientation = display_get_orientation();
 	
 	static _internal = {
 		draw_icon: false,
@@ -57,9 +64,13 @@ function __internalScreen()
 	{
 		with Screen
 		{
-			aspect_ratio = view_wport[0] / view_hport[0];
+			var wport = window_get_width(), hport = window_get_height();
+			aspect_ratio = wport / hport;
 			setVSync(vs);
 			sync(false, swap_portrait);
+			base_width = wport;
+			base_height = hport;
+			getOrientation();
 		}
 	}
 
@@ -97,24 +108,34 @@ function __internalScreen()
 		}
 	}
 	
-	static apply = function()
+	static apply = function(center = false, reset_gui = true)
 	{
 		if !window_get_fullscreen()
 			window_restore();
 			
-		with Screen._internal
+		with Screen
 		{
-			if sprite_exists(Screen.captionConfig.icon.sprite_index)
-				draw_icon = true;
+			with _internal
+			{
+				if sprite_exists(Screen.captionConfig.icon.sprite_index)
+					draw_icon = true;
+			}
+		
+			camera_set_view_size(view_camera[0], width, height);
+			view_set_wport(0, width);
+			view_set_hport(0, height);
+		
+			__screen_trace("apply: Width: ", width, ", Height: ", height);
+			surface_resize(application_surface, width, height);
+		
+			window_set_size(width, height);
+			if center
+				window_center();
+			
+			if reset_gui
+				display_set_gui_maximise(Screen.width / base_width, Screen.height / base_height);
+			return self;
 		}
-		
-		camera_set_view_size(view_camera[0], Screen.width, Screen.height);
-		view_wport[0] = Screen.width;
-		view_hport[0] = Screen.height;
-		surface_resize(application_surface, view_wport[0], view_hport[0]);
-		
-		window_set_size(Screen.width, Screen.height);
-		return Screen;
 	}
 	
 	static setScreenSize = function(w, h)
@@ -135,9 +156,11 @@ function __internalScreen()
 	static getOrientation = function()
 	{
 		if os_browser
-			return browser_width < browser_height;
+			var s = browser_width < browser_height;
 		else
-			return display_get_orientation();
+			var s = display_get_orientation();
+		Screen.display_orientation = s;
+		return s;
 	}
 	
 	static getRatio = function()
@@ -160,7 +183,7 @@ function __internalScreen()
 	{
 		if !SCREEN_VSYNC_IS_SUPPORTED && vs == true
 		{
-			__screen_trace("WARNING: VSync is not supported on this device.");
+			__screen_trace("setVSync: WARNING: VSync is not supported on this device.");
 		}
 		
 		display_reset(display_aa, vs);
@@ -176,16 +199,18 @@ function __internalScreen()
 		return Screen;
 	}
 	
-	// -1 is only when focused in permitted options
+	// negative is only when focused in permitted options
 	static captionConfig = {
 		color: c_white,
-		borderWidth : 2, // px
-		borderHeight: 2,
+		borderWidth : 1, // px
+		borderHeight: 1,
 		captionHeight: 64,
 		//captionAnchor: SCREEN_ANCHOR.TOP, // Hellll no
 		font: 0,
-		text_align: [fa_left, fa_middle],
-		alpha: -1,
+		text_anchor: SCREEN_ANCHOR.LEFT | SCREEN_ANCHOR.VCENTER,
+		text_padding: 4, // Distances from icon as well
+		text_font: 0,
+		alpha: -0.6,
 		alpha_lerp: 0.05, // 1 for instant
 		can_input: -1,
 		resizePadding: 4,
@@ -233,14 +258,18 @@ function __internalScreen()
 		return Screen;
 	}
 	
-	static updateBorder = function()
+	static updateCaption = function()
 	{
 		with Screen.captionConfig
 		{
-			if _real_alpha != alpha
-			&& _real_alpha <= alpha + (alpha_lerp * 2)
-			&& _real_alpha >= alpha - (alpha_lerp * 2)
-				_real_alpha = lerp(_real_alpha, alpha, alpha_lerp);
+			var a = alpha;
+			if a < 0
+				a = window_has_focus() ? -a : 0;
+			
+			if _real_alpha != a
+			&& _real_alpha <= a + (alpha_lerp * 2)
+			&& _real_alpha >= a - (alpha_lerp * 2)
+				_real_alpha = lerp(_real_alpha, a, alpha_lerp);
 				
 			var mx = device_mouse_x(0), my = device_mouse_y(0);
 			var wx = window_get_x(), wy = window_get_y(),
@@ -357,36 +386,70 @@ function __internalScreen()
 			}
 			else with Screen.m_border
 			{
-				self.left = false;
-				self.right = false;
-				self.top = false;
-				self.bottom = false;
+				left = false;
+				right = false;
+				top = false;
+				bottom = false;
 			}
 		}
 		return Screen;
 	}
 	
-	static drawBorder = function()
+	static drawCaption = function()
 	{
+		var w = display_get_gui_width(), h = display_get_gui_height();
 		with Screen.captionConfig
 		{
+			draw_set_alpha(_real_alpha);
+			var ww = w, hh = captionHeight;
+			var size = 0;
+			
+			draw_rectangle(0, 0, ww, hh, false);
+			
 			if Screen._internal.draw_icon with icon
 			{
 				if sprite_index != noone
 				{
-					var ww = Screen.width, hh = other.captionHeight;
 					var xx = __getAnchorX(anchor, ww, padding);
 					var yy = __getAnchorY(anchor, hh, padding);
 					
-					var size = min(ww - (padding * 2), hh - (padding * 2));
+					size = min(ww - (padding * 2), hh - (padding * 2));
 					draw_sprite_stretched_ext(sprite_index, image_index, xx, yy, size, size, image_blend, image_alpha);
 				}
 			}
 			
-			draw_rectangle(0, 0, Screen.width, borderHeight, false);
-			draw_rectangle(0, Screen.height, Screen.width, Screen.height - borderHeight, false);
-			draw_rectangle(0, 0, borderWidth, Screen.height, false);
-			draw_rectangle(Screen.width, 0, Screen.width - borderWidth, Screen.height, false);
+			draw_set_font(text_font);
+			draw_set_halign(fa_middle);
+			draw_set_valign(fa_center);
+			
+			var p = text_padding;
+			if Screen._internal.draw_icon
+			{
+				// Only the horizontal bits
+				if ((text_anchor >> 2) << 2) == ((icon.anchor >> 2) << 2)
+					p += size + icon.padding;
+			}
+			
+			var xx = __getAnchorX(text_anchor, ww, text_padding);
+			if xx < ww / 2
+				draw_set_halign(fa_left);
+			else if xx > ww / 2
+				draw_set_halign(fa_right);
+				
+			var yy = __getAnchorY(text_anchor, hh, text_padding);
+			if yy < hh / 2
+				draw_set_valign(fa_top);
+			else if yy > hh / 2
+				draw_set_valign(fa_bottom);
+			
+			draw_text(xx, yy, window_get_caption());
+			
+			draw_set_alpha(1);
+			
+			draw_rectangle(0, 0, w, borderHeight, false);
+			draw_rectangle(0, h, w, h - borderHeight, false);
+			draw_rectangle(0, 0, borderWidth, h, false);
+			draw_rectangle(w, 0, w - borderWidth, h, false);
 		}
 		return Screen;
 	}

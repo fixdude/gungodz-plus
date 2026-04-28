@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.6653514,
+  "duration":0.66535145,
   "exportDir":"",
   "name":"sndBitchSee2",
   "parent":{

@@ -5,4 +5,3 @@ size = 32;
 z = 0;
 alarm[0] = 1;
 scrShake(4);
-ind = floor(image_index);

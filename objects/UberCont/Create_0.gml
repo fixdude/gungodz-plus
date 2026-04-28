@@ -49,3 +49,5 @@ gold = false;
 hard = false;
 musicon = 1;
 achievQueue = ds_queue_create();
+
+Screen.captionConfig.icon.sprite_index = sprIco;

@@ -11,7 +11,10 @@
     "name":"Ceiling",
     "path":"folders/Objects/Assets/Ceiling.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"Ceil",
+    "path":"objects/Ceil/Ceil.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

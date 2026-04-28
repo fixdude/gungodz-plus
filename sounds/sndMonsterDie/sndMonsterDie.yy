@@ -10,7 +10,7 @@
   "compression":0,
   "compressionQuality":4,
   "conversionMode":0,
-  "duration":0.9594784,
+  "duration":0.95947844,
   "exportDir":"",
   "name":"sndMonsterDie",
   "parent":{

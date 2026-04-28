@@ -1,0 +1,16 @@
+event_inherited();
+image_speed = 0.2;
+my_health = 100;
+kick = 0.5;
+width = 6;
+spridle = sprSuperFucker;
+sprwalk = sprSuperFuckerWalk;
+sprdead = sprSuperFuckerDie;
+sprfire = sprSuperFuckerFire;
+sprhurt = sprSuperFuckerHurt;
+my_dsound = sndSuperFuckerDie;
+my_asound = choose(sndSuperFuckerSee1, sndSuperFuckerSee2, sndSuperFuckerSee3);
+alarm[2] = 1 + random(90);
+awaremax = 30 + random(5);
+lastx = x;
+lasty = y;

@@ -36,17 +36,6 @@ function d3d_draw_floor_simple(x1, y1, x2, y2, z, tex = -1) {
         var cz = 0;
         
 		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3];
-		var perX = uvs[6], perY = uvs[7];
-		
-		var w = cr / perX;
-		var h = cb / perY;
-		var tr = w - (w * perX) - cl;
-		var tb = h - (h * perY) - ct;
-		
-		cx1 += uvs[4]; // Left side trimming
-		cx2 -= tr; // Right side trimming
-		cy1 += uvs[5]; // Top side trimming
-		cy2 -= tb; // Bottom side trimming
 		
         vertex(vb, cx1, cy1, cz, 0, 0, 1, cl, ct, c_white, 1);
         vertex(vb, cx1, cy2, cz, 0, 0, 1, cl, cb, c_white, 1);
