@@ -1,5 +1,3 @@
-![Cool](https://github.com/fixdude/gungodz-plus/blob/main/github/gungodzplusbanner.png "GUN GODZ+ Banner")
-
 <p align="center" width="100%">
     <img alt="GUN GODZ+ Banner" src="https://github.com/fixdude/gungodz-plus/blob/main/github/gungodzplusbanner.png"> 
 </p>
