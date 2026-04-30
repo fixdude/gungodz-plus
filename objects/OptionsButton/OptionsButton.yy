@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"OptionsButton",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"OptionsButton",
   "overriddenProperties":[],
@@ -10,8 +12,8 @@
     "path":"folders/Objects/Menu/Options.yy",
   },
   "parentObjectId":{
-    "name":"GameObject",
-    "path":"objects/GameObject/GameObject.yy",
+    "name":"Button",
+    "path":"objects/Button/Button.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
