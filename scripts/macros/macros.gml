@@ -1,6 +1,8 @@
 // It's named macros but it can also contain other stuff.
 // actually it mostly doesn't even have actual macros
 
+texturegroup_set_mode(true, GM_build_type == "run", sprSecret);
+
 #macro is_desktop (os_type == os_windows || os_type == os_linux || os_type == os_macosx)
 #macro use_native_cursor (os_type == os_windows && extension_exists("native_cursor"))
 #macro use_steam extension_exists("Steamworks")

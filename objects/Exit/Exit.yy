@@ -37,5 +37,5 @@
     "path":"sprites/sprExit/sprExit.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

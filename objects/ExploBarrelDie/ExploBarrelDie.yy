@@ -15,8 +15,8 @@
     "path":"folders/Objects/Assets/Hazards.yy",
   },
   "parentObjectId":{
-    "name":"GameObject",
-    "path":"objects/GameObject/GameObject.yy",
+    "name":"plane",
+    "path":"objects/plane/plane.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

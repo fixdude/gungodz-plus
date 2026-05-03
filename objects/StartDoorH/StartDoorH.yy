@@ -4,7 +4,6 @@
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"StartDoorH",
@@ -14,8 +13,8 @@
     "path":"folders/Objects/Assets/Doors.yy",
   },
   "parentObjectId":{
-    "name":"WallPlaneH",
-    "path":"objects/WallPlaneH/WallPlaneH.yy",
+    "name":"GameObject",
+    "path":"objects/GameObject/GameObject.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -35,8 +34,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"tilExitDoor",
-    "path":"sprites/tilExitDoor/tilExitDoor.yy",
+    "name":"tilExitDoor1",
+    "path":"sprites/tilExitDoor1/tilExitDoor1.yy",
   },
   "spriteMaskId":null,
   "visible":false,

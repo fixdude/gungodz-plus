@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"tgroup",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"tgroup",
+  "parent":{
+    "name":"Internal",
+    "path":"folders/Scripts/Internal.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

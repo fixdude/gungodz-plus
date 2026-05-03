@@ -14,7 +14,7 @@ tilt = 0;
 stars = 0;
 z = 16;
 gunanim = 0;
-can_shoot = 1;
+can_shoot = true;
 starz = 0;
 my_health = 100;
 wep = UberCont.p_gun;
@@ -27,3 +27,5 @@ hity = y;
 playerIndex = 0;
 zspeed = 0;
 walkspeed = 1;
+
+no_mlock = false;

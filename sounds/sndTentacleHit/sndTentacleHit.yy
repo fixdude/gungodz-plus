@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndTentacleHit",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Tentacle",
+    "path":"folders/Sounds/SFX/Enemies/Ratking (Boss)/Tentacle.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

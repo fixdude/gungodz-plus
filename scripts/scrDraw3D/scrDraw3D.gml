@@ -24,6 +24,16 @@ function scrDraw3d()
 		if h == 2
 			d3d_draw_wall_simple(x1, y1, 64, x2, y2, 32, tt2);
 	}
+	
+	with (StartDoorV)
+	{
+		if dist < dist_max
+		{
+			d3d_draw_wall_simple(x1, y1 - dist, 32, x2, y2 - dist, 0, ttL);
+			d3d_draw_wall_simple(x1, y1 + dist, 32, x2, y2 + dist, 0, ttR);
+		}
+		d3d_draw_wall_simple(x1, y1, 32, x2, y2, 0, tt1);
+	}
 
 	with (DoorV)
 	{
@@ -67,6 +77,16 @@ function scrDraw3d()
 		if h == 2
 			d3d_draw_wall_simple(x1, y1, 64, x2, y2, 32, tt2);
 	}
+	
+	with (StartDoorH)
+	{
+		if dist < dist_max
+		{
+			d3d_draw_wall_simple(x1 - dist, y1, 32, x2 - dist, y2, 0, ttL);
+			d3d_draw_wall_simple(x1 + dist, y1, 32, x2 + dist, y2, 0, ttR);
+		}
+		d3d_draw_wall_simple(x1, y1, 32, x2, y2, 0, tt1);
+	}
 
 	with (DoorH)
 	{
@@ -100,6 +120,12 @@ function scrDraw3d()
 		if glow == true
 		&& Player.fog == true
 			d3d_set_fog(true, c_black, -10, Player.hdr);
+	}
+	
+	with (BulletTrail)
+	{
+		if x != xstart || y != ystart || z != zstart
+			d3d_draw_line(xstart, ystart, zstart, x, y, z, 2, image_blend, image_alpha);
 	}
 
 	with (Exit)

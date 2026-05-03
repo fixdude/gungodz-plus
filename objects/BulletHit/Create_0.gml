@@ -1,11 +1,5 @@
 z = 8;
-
-if !sphere_is_visible(x, y, z, 100)
-{
-	instance_destroy();
-	exit;
-}
-
+event_inherited();
 glow = true;
 size = 16;
 image_speed = 0.5 fmt;

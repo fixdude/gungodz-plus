@@ -5,10 +5,11 @@ function scrSuperCredits()
 		"GUNGODZ",
 		"VLAMBEER",
 		"PAUL VEER",
-		"KOZILEK",
+		"JUKIO KALLIO (KOZILEK)",
 		"DOSEONE",
-		"MOISE MOTHER",
-		"VENUS PATROL",
+		"MOIST MOTHER",
+		"FRED WOOD",
+		"JUJU ADAMS",
 		""
 	]
 	things = array_length(text) - 1;

@@ -10,6 +10,7 @@ y = room_height / 2;
 dix = 1;
 diy = 1;
 stars = 0;
+shine_set_info(sprGoldButton);
 
 repeat NUM_WORLDS
 {
@@ -47,6 +48,15 @@ repeat NUM_WORLDS
 			fog = other.l_info[wld, 0];
 			wld = other.wld;
 			lev = other.lev;
+			unlocked = UberCont.unlok[wld, lev];
+			if !unlocked
+			{
+				image_blend = c_black;
+				image_alpha = 0.9;
+			}
+			
+			if UberCont.beats[wld, lev] <= 0
+				sprite_index = sprGrayButton;
 		}
 		
 		lev++;
@@ -61,6 +71,9 @@ repeat NUM_WORLDS
 
 instance_create((room_width / 2) - 104, diy, CreditsButton);
 instance_create((room_width / 2) - 52, diy, RemapButton);
+instance_create(160, 160, OptionsButton);
+if INPUT_ON_DESKTOP
+	instance_create(212, 160, ExitButton);
 
 if UberCont.beats[4, 3] > 0
 	instance_create(room_width / 2, diy, GoldToggle);

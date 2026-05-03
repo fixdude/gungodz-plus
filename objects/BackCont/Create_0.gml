@@ -1,4 +1,5 @@
 d3d_start();
+	
 draw_set_color(c_white);
 d3d_set_fog(true, c_black, -10, 480);
 init = false;

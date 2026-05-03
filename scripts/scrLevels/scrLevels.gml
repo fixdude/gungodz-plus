@@ -23,28 +23,28 @@ function scrLevels()
 		// WORLD 2
 		[
 			320,
-			new levelInfo("SEWER#ENTRANCE", 00),
-			new levelInfo("WASTEWATER", 00),
-			new levelInfo("PUMPING#STATION", 00),
-			new levelInfo("???", 00)
+			new levelInfo("SEWER#ENTRANCE", 50),
+			new levelInfo("WASTEWATER", 70),
+			new levelInfo("PUMPING#STATION", 40),
+			new levelInfo("???", 70)
 		],
 		
 		// WORLD 3
 		[
 			240,
-			new levelInfo("BASEMENT", 00),
-			new levelInfo("FACILITY", 00),
-			new levelInfo("WINE#HEAVEN", 00),
-			new levelInfo("???", 00)
+			new levelInfo("BASEMENT", 45),
+			new levelInfo("FACILITY", 85),
+			new levelInfo("WINE#HEAVEN", 105),
+			new levelInfo("???", 50)
 		],
 		
 		// WORLD 4
 		[
 			480,
-			new levelInfo("HALLWAY", 00),
-			new levelInfo("LOBBY", 00),
-			new levelInfo("ROOFTOP", 00),
-			new levelInfo("???", 00)
+			new levelInfo("HALLWAY", 80),
+			new levelInfo("LOBBY", 85),
+			new levelInfo("ROOFTOP", 40),
+			new levelInfo("???", 35)
 		],
 	];
 }

@@ -42,17 +42,24 @@ function scrStart()
 	
 	var Ceiling = asset_get_index($"Ceil{ind}");
 	var Back = asset_get_index($"Bak{ind}");
-	if Ceiling == -1
-		Ceiling = Ceil1;
-	if Back == -1
-		Back = Bak1;
-	var sprDoor = asset_get_index($"sprDoor{ind}");
-	var sprDoorSide = asset_get_index($"sprDoor{ind}Side");
-	var sprDoorS = asset_get_index($"sprDoor{ind}S");
-	var sprBar = asset_get_index($"sprBar{ind}");
 	
-	instance_create(x, y, Ceiling);
-	instance_create(x, y, Back);
+	var sprDoor = asset_get_index($"sprDoor{ind}");
+	if sprDoor == -1
+		sprDoor = sprDoor1;
+	var sprDoorSide = asset_get_index($"sprDoor{ind}Side");
+	if sprDoorSide == -1
+		sprDoorSide = sprDoor1Side;
+	var sprDoorS = asset_get_index($"sprDoor{ind}S");
+	if sprDoorS == -1
+		sprDoorS = sprDoor1S;
+	var sprBar = asset_get_index($"sprBar{ind}");
+	if sprBar == -1
+		sprBar = sprBar1;
+	
+	if Ceiling != -1
+		instance_create(x, y, Ceiling);
+	if Back != -1
+		instance_create(x, y, Back);
 	BackCont.ttD = sprite_get_texture(sprDoorSide, 0);
 	
 	with door

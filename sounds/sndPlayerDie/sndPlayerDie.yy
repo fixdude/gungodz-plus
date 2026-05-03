@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndPlayerDie",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Player",
+    "path":"folders/Sounds/SFX/Player.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

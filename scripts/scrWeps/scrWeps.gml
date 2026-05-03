@@ -1,6 +1,7 @@
-function Weapon(spr, auto, reload = 6, press = noone, hold = noone, release = noone, cost = 1, goldshake = 3) constructor
+function Weapon(spr, goldspr, auto, reload = 6, press = noone, hold = noone, release = noone, cost = 1, goldshake = 3) constructor
 {
 	sprite_index = spr;
+	gold_sprite = goldspr;
 	image_speed = 0.1;
 	self.auto = auto;
 	self.reload = reload;
@@ -13,7 +14,7 @@ function Weapon(spr, auto, reload = 6, press = noone, hold = noone, release = no
 
 #macro wepDefaults global.__wepDefaults
 wepDefaults = {
-	Pistol: new Weapon(sprPistol, false, 30, function(player, gold)
+	Pistol: new Weapon(sprPistol, sprPistolGold, false, 6, function(player, gold)
 	{
 		with (player)
 		{
@@ -29,8 +30,9 @@ wepDefaults = {
 		}
 			
 		scrFogFlash(2);
+		return true;
 	}),
-	Shotgun: new Weapon(sprShotgun, false, 30, function(player, gold)
+	Shotgun: new Weapon(sprShotgun, sprShotgunGold, false, 30, function(player, gold)
 	{
 		scrShake(2);
 			
@@ -53,7 +55,7 @@ wepDefaults = {
 		scrFogFlash(2);
 		return true;
 	}),
-	Minigun: new Weapon(sprMinigun, false, 5, function()
+	Minigun: new Weapon(sprMinigun, sprMinigunGold, false, 5, function()
 	{
 		sound_stop(sndMinigunEnd);
 		sound_play(sndMinigunStart);
@@ -82,7 +84,7 @@ wepDefaults = {
 		sound_stop(sndMinigun);
 		sound_play(sndMinigunEnd);
 	}, 1),
-	Bazooka: new Weapon(sprBazooka, false, 50, noone, function(player, gold)
+	Bazooka: new Weapon(sprBazooka, sprBazookaGold, false, 50, noone, function(player, gold)
 	{
 		scrShake(1);
 			
@@ -103,7 +105,7 @@ wepDefaults = {
 		scrFogFlash();
 		return true;
 	}),
-	Knife: new Weapon(sprKnifeWeapon, false, 0, function(player, gold)
+	Knife: new Weapon(sprKnifeWeapon, sprKnifeWeaponGold, false, 0, function(player, gold)
 	{
 		with (player)
 		{

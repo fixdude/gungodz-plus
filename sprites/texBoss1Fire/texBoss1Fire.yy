@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Ratking (Boss)",
+    "path":"folders/Sprites/Enemies/Ratking (Boss).yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -89,8 +89,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"enemyGroup",
+    "path":"texturegroups/enemyGroup",
   },
   "type":0,
   "VTile":false,

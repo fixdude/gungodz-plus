@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndSuperFuckerSee1",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"SuperFucker (SuperFireballer)",
+    "path":"folders/Sounds/SFX/Enemies/SuperFucker (SuperFireballer).yy",
   },
   "preload":true,
   "resourceType":"GMSound",

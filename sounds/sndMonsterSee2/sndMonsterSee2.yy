@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndMonsterSee2",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Monster",
+    "path":"folders/Sounds/SFX/Enemies/Monster.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

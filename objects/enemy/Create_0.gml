@@ -1,6 +1,6 @@
 event_inherited();
 
-image_speed = 0.4;
+image_speed = 0.4 fmt;
 active = false;
 aware = false;
 target = 0;

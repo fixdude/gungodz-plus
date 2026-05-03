@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndFireBallWall",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Projectiles",
+    "path":"folders/Sounds/SFX/Enemies/Projectiles.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

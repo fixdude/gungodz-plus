@@ -38,5 +38,5 @@
     "path":"sprites/sprStart/sprStart.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

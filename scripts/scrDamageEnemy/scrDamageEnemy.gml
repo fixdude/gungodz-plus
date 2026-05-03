@@ -1,4 +1,4 @@
-function scrDamageEnemy(enm, dmg, knk, stab, zoff)
+function scrDamageEnemy(enm, dmg, knk, stab = false, zoff = undefined)
 {
 	if !enm.invincible
 	&& !(enm.object_index == Boss1 && (enm.sprite_index != texBoss1Weak && enm.sprite_index != texBoss1WeakHit))
@@ -6,7 +6,8 @@ function scrDamageEnemy(enm, dmg, knk, stab, zoff)
 	{
 		with (enm)
 		{
-			sound_play(my_hsound);
+			if !is_undefined(my_hsound) && my_hsound != noone
+				sound_play(my_hsound);
 		
 			if alarm[0] > 1
 				alarm[0] += 2 fmt;
@@ -22,8 +23,12 @@ function scrDamageEnemy(enm, dmg, knk, stab, zoff)
 			motion_add(other.image_angle, knk * kick);
 		}
 	
-		with instance_create(other.x, other.y, BulletHitEnemy)
-			z = zoff;
+		if zoff != undefined
+		{
+			var b = object_is_ancestor(enm.object_index, enemy) ? BulletHitEnemy : BulletHit;
+			with instance_create(other.x, other.y, b)
+				z = zoff;
+		}
 			
 		enmhit = true;
 		return true;

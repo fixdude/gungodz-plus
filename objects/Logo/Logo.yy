@@ -34,10 +34,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"sprLogoEye",
-    "path":"sprites/sprLogoEye/sprLogoEye.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }

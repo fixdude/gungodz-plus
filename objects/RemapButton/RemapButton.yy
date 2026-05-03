@@ -33,9 +33,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprLevelButton",
-    "path":"sprites/sprLevelButton/sprLevelButton.yy",
+    "name":"sprGrayButton",
+    "path":"sprites/sprGrayButton/sprGrayButton.yy",
   },
   "spriteMaskId":null,
-  "visible":false,
+  "visible":true,
 }

@@ -6,8 +6,8 @@
   "name":"GodExecute",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bosses",
-    "path":"folders/Objects/Enemies/Bosses.yy",
+    "name":"Gun God",
+    "path":"folders/Objects/Enemies/Bosses/Gun God.yy",
   },
   "parentObjectId":{
     "name":"GameObject",

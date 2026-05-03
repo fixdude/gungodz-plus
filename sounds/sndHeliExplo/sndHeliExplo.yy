@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndHeliExplo",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Gun God",
+    "path":"folders/Sounds/SFX/Enemies/Gun God.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

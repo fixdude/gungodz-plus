@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndPickupHP",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Pickups",
+    "path":"folders/Sounds/SFX/Pickups.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

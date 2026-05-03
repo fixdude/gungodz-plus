@@ -38,6 +38,9 @@
     "name":"sprPrisoner",
     "path":"sprites/sprPrisoner/sprPrisoner.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"sprPlayer",
+    "path":"sprites/sprPlayer/sprPlayer.yy",
+  },
   "visible":false,
 }

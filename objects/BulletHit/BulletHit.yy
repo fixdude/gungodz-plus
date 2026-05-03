@@ -10,8 +10,8 @@
   "name":"BulletHit",
   "overriddenProperties":[],
   "parent":{
-    "name":"Projectiles",
-    "path":"folders/Objects/Projectiles.yy",
+    "name":"Effects",
+    "path":"folders/Objects/Effects.yy",
   },
   "parentObjectId":{
     "name":"plane",
@@ -39,5 +39,5 @@
     "path":"sprites/sprBulletHit/sprBulletHit.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

@@ -10,9 +10,11 @@ function scrDrawHUD()
 	{
 		var weapon = Player.weapons[Player.wep];
 		var wepspr = weapon.sprite_index;
+		var wepgoldspr = weapon.gold_sprite;
 		var wepind = Player.gunanim;
 		var wepy = Player.guny;
 		
+		/*
 		if BackCont.gold == true
 		{
 			draw_sprite_ext(wepspr, abs(wepind), m + (sin(Player.walk / 20) * 4), h + wepy + credithudx, 1, 1, 0, make_color_rgb(222, 186, 84), 1);
@@ -24,7 +26,8 @@ function scrDrawHUD()
 			draw_set_blend_mode(bm_normal);
 		}
 		else
-			draw_sprite(wepspr, abs(wepind), m + (sin(Player.walk / 20) * 4), h + wepy + credithudx);
+		*/
+		draw_sprite(BackCont.gold ? wepgoldspr : wepspr, abs(wepind), m + (sin(Player.walk / 20) * 4), h + wepy + credithudx);
 	
 		draw_set_color(c_red);
 		draw_set_alpha(Player.red);

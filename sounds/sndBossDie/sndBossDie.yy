@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndBossDie",
   "parent":{
-    "name":"Boss (Gun God)",
-    "path":"folders/Sounds/SFX/Enemies/Boss (Gun God).yy",
+    "name":"Gun God",
+    "path":"folders/Sounds/SFX/Enemies/Gun God.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

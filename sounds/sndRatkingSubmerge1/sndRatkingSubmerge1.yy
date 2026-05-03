@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndRatkingSubmerge1",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Ratking (Boss)",
+    "path":"folders/Sounds/SFX/Enemies/Ratking (Boss).yy",
   },
   "preload":true,
   "resourceType":"GMSound",

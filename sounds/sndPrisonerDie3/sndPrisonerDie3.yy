@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndPrisonerDie3",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Prisoner",
+    "path":"folders/Sounds/SFX/Enemies/Prisoner.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

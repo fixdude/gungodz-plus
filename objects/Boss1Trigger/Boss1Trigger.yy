@@ -6,8 +6,8 @@
   "name":"Boss1Trigger",
   "overriddenProperties":[],
   "parent":{
-    "name":"Bosses",
-    "path":"folders/Objects/Enemies/Bosses.yy",
+    "name":"Ratking",
+    "path":"folders/Objects/Enemies/Bosses/Ratking.yy",
   },
   "parentObjectId":{
     "name":"GameObject",

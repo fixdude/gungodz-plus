@@ -8,8 +8,8 @@
   "name":"OptionsButton",
   "overriddenProperties":[],
   "parent":{
-    "name":"Options",
-    "path":"folders/Objects/Menu/Options.yy",
+    "name":"Menu",
+    "path":"folders/Objects/Menu.yy",
   },
   "parentObjectId":{
     "name":"Button",
@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprLevelButton",
-    "path":"sprites/sprLevelButton/sprLevelButton.yy",
+    "name":"sprGrayButton",
+    "path":"sprites/sprGrayButton/sprGrayButton.yy",
   },
   "spriteMaskId":null,
   "visible":true,

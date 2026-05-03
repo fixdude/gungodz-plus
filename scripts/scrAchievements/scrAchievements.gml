@@ -62,19 +62,22 @@ function scr_startAchievements()
 function scr_updateAchievements()
 {
 	FORCEINLINE;
-	var n = ACHIEVEMENT.names, a = ACHIEVEMENT.amount;
-	for (var i = 0; i < a; i++)
+	if !instance_exists(obj_pause)
 	{
-		var name = n[i], achiev = ACHIEVEMENT[$ name];
-		if achiev[ACH.UNLOCKED]
-			continue;
-			
-		if (instance_exists(Player) && achiev[ACH.RM] == 0) || room == achiev[ACH.RM]
+		var n = ACHIEVEMENT.names, a = ACHIEVEMENT.amount;
+		for (var i = 0; i < a; i++)
 		{
-			var r = achiev[ACH.FUNC]();
-			achiev[ACH.UNLOCKED] |= r;
-			if use_steam && steam_on && r == true && !steam_get_achievement(name)
-				steam_set_achievement(name);
+			var name = n[i], achiev = ACHIEVEMENT[$ name];
+			if achiev[ACH.UNLOCKED]
+				continue;
+			
+			if (instance_exists(Player) && achiev[ACH.RM] == 0) || room == achiev[ACH.RM]
+			{
+				var r = achiev[ACH.FUNC]();
+				achiev[ACH.UNLOCKED] |= r;
+				if use_steam && steam_on && r == true && !steam_get_achievement(name)
+					steam_set_achievement(name);
+			}
 		}
 	}
 }

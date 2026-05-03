@@ -1,29 +1,39 @@
-function sound_play(snd)
+function sound_play(snd, emitter = noone, bus = MusCont.sfx_bus)
 {
-	var emitter = MusCont.sfx_emitter;
-	return audio_play_sound_on(emitter, snd, false, 10);
+	return emitter != noone
+	? audio_play_sound_on(emitter, snd, false, 10)
+	: audio_play_sound(snd, 10, false);
 }
 
-function sound_play_3d(snd, x, y, z)
+function sound_play_3d(snd, x, y, z = 0, bus = MusCont.sfx_bus)
 {
-	var emitter = MusCont.sfx_3d_emitter;
-	audio_emitter_position(emitter, x, y, z);
-	return audio_play_sound_on(emitter, snd, false, 10);
+	return audio_play_sound_at(snd, x, y, z, 400, 800, 1, false, 10);
 }
 
-// I think I'd rather make it an argument in the original functions, but IDK
-function sound_loop(snd)
+function sound_loop(snd, emitter = noone, bus = MusCont.sfx_bus)
 {
-	var s = sound_play(snd, true);
+	var s = sound_play(snd, emitter, bus);
 	audio_sound_loop(s, true);
 	return s;
 }
 
-function sound_loop_3d(snd, x, y, z)
+function sound_loop_3d(snd, x, y, z = 0, bus = MusCont.sfx_bus)
 {
-	var s = sound_play_3d(snd, x, y, z, true);
+	var s = sound_play_3d(snd, x, y, z, bus);
 	audio_sound_loop(s, true);
 	return s;
+}
+
+function sound_emitter(x, y, z = 0)
+{
+	var emt = audio_emitter_create();
+	audio_emitter_position(emt, x, y, z);
+	audio_emitter_bus(emt, MusCont.sfx_bus);
+}
+
+function sound_emitter_pos(emt, x, y, z = 0)
+{
+	audio_emitter_position(emt, x, y, z);
 }
 
 #macro sound_isplaying audio_is_playing

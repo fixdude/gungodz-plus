@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprLevelButton",
-    "path":"sprites/sprLevelButton/sprLevelButton.yy",
+    "name":"sprGoldButton",
+    "path":"sprites/sprGoldButton/sprGoldButton.yy",
   },
   "spriteMaskId":null,
   "visible":true,

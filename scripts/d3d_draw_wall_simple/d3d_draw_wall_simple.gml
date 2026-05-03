@@ -7,7 +7,6 @@
 /// @param {real} y2 The ending y coordinate of the wall
 /// @param {real} z2 The ending z coordinate of the wall
 /// @param {pointer.Texture|real} tex The texture to draw the wall with (defaults to -1 for no texture)
-/// @param {array} uvs See sprite_get_uvs function
 function d3d_draw_wall_simple(x1, y1, z1, x2, y2, z2, tex = -1) {
     static vertex = Drago3D_Internals.Vertex;
     static format = Drago3D_Internals.format;
@@ -40,12 +39,31 @@ function d3d_draw_wall_simple(x1, y1, z1, x2, y2, z2, tex = -1) {
         
 		var uvs = texture_get_uvs(tex);
 		
-		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3];
+		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3]
+		var ls = uvs[4], ts = uvs[5];
+		var w = (cr - cl), h = (cb - ct);
+		var rs = w - (w * uvs[6]) - ls;
+		var bs = h - (h * uvs[7]) - ts;
 		
-		x1 += uvs[4]; // Left side trimming
-		x2 -= uvs[4]; // Right side trimming
-		z1 += uvs[5]; // Top side trimming
-		z2 -= uvs[5]; // Bottom side trimming
+		var dir = point_direction(x1, y1, x2, y2);
+		var qx = lengthdir_x(1, dir);
+		var qy = lengthdir_y(1, dir);
+		var q = darcsin((z1 - z2) / point_distance_3d(x1, y1, z1, x2, y2, z2));
+		var qz = lengthdir_x(1, q) * lengthdir_y(1, q);
+		
+		var lsx = ls * qx;
+		var lsy = ls * qy;
+		var rsx = rs * qx;
+		var rsy = rs * qy;
+		var tsz = ts * qz;
+		var bsz = bs * qz;
+		
+		x1 += lsx; // Left side trimming
+		x2 += rsx; // Right side trimming
+		y1 += lsy; // Left side trimming
+		y2 += rsy; // Right side trimming
+		z1 += tsz * 2; // Top side trimming
+		z2 += bsz + tsz; // Bottom side trimming
 		
         vertex(vb, x1, y1, z1, nx, ny, 0, cl, ct, c_white, 1);
         vertex(vb, x2, y2, z1, nx, ny, 0, cr, ct, c_white, 1);

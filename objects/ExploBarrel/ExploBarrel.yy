@@ -13,8 +13,8 @@
     "path":"folders/Objects/Assets/Hazards.yy",
   },
   "parentObjectId":{
-    "name":"plane",
-    "path":"objects/plane/plane.yy",
+    "name":"hitme",
+    "path":"objects/hitme/hitme.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

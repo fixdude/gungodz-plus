@@ -37,5 +37,5 @@
     "path":"sprites/sprBulletHitEnemy/sprBulletHitEnemy.yy",
   },
   "spriteMaskId":null,
-  "visible":true,
+  "visible":false,
 }

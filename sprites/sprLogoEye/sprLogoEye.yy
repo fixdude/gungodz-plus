@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"sprLogoEye",
   "bboxMode":0,
-  "bbox_bottom":30,
+  "bbox_bottom":15,
   "bbox_left":0,
-  "bbox_right":45,
+  "bbox_right":22,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,9 +16,6 @@
     {"$GMSpriteFrame":"v1","%Name":"c5a5fbad-2f22-4615-b10f-0cf44e24700d","name":"c5a5fbad-2f22-4615-b10f-0cf44e24700d","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"b9f009ac-4766-45b2-b7a1-492b80040f7f","name":"b9f009ac-4766-45b2-b7a1-492b80040f7f","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
     {"$GMSpriteFrame":"v1","%Name":"27e187c6-2169-42a5-80d5-dfcae3ca370e","name":"27e187c6-2169-42a5-80d5-dfcae3ca370e","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"0a7a077f-6079-43c1-ae99-eec592e88ed1","name":"0a7a077f-6079-43c1-ae99-eec592e88ed1","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"3c414aa6-4c1a-4059-837c-191eea6158fd","name":"3c414aa6-4c1a-4059-837c-191eea6158fd","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
-    {"$GMSpriteFrame":"v1","%Name":"fa9df59d-c368-4dfb-b066-c0775207c8d9","name":"fa9df59d-c368-4dfb-b066-c0775207c8d9","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
   "gridX":0,
   "gridY":0,
@@ -31,8 +28,8 @@
   "nineSlice":null,
   "origin":4,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Logo",
+    "path":"folders/Sprites/Menu/Logo.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -55,7 +52,7 @@
     },
     "eventStubScript":null,
     "eventToFunction":{},
-    "length":7.0,
+    "length":4.0,
     "lockOrigin":false,
     "moments":{
       "$KeyframeStore<MomentsEventKeyframe>":"",
@@ -86,15 +83,6 @@
             {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
                 "0":{"$SpriteFrameKeyframe":"","Id":{"name":"27e187c6-2169-42a5-80d5-dfcae3ca370e","path":"sprites/sprLogoEye/sprLogoEye.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
               },"Disabled":false,"id":"352835a3-7ace-44e0-819f-10eeb1a4629a","IsCreationKey":false,"Key":3.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"0a7a077f-6079-43c1-ae99-eec592e88ed1","path":"sprites/sprLogoEye/sprLogoEye.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"75d7c6a1-311a-49e7-95d5-da7bcc60916e","IsCreationKey":false,"Key":4.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"3c414aa6-4c1a-4059-837c-191eea6158fd","path":"sprites/sprLogoEye/sprLogoEye.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"b1305d81-6ab4-4ff6-ba09-2182c2f91b4d","IsCreationKey":false,"Key":5.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
-            {"$Keyframe<SpriteFrameKeyframe>":"","Channels":{
-                "0":{"$SpriteFrameKeyframe":"","Id":{"name":"fa9df59d-c368-4dfb-b066-c0775207c8d9","path":"sprites/sprLogoEye/sprLogoEye.yy",},"resourceType":"SpriteFrameKeyframe","resourceVersion":"2.0",},
-              },"Disabled":false,"id":"451919a6-cd53-40b5-b63f-4b1d93b3c0c3","IsCreationKey":false,"Key":6.0,"Length":1.0,"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"2.0","Stretch":false,},
           ],"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"2.0",},"modifiers":[],"name":"frames","resourceType":"GMSpriteFramesTrack","resourceVersion":"2.0","spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange":null,
@@ -105,8 +93,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"menuGroup",
-    "path":"texturegroups/menuGroup",
+    "name":"logoGroup",
+    "path":"texturegroups/logoGroup",
   },
   "type":0,
   "VTile":false,

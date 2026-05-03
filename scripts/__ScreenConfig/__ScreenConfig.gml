@@ -38,37 +38,5 @@ function __ScreenConfig()
 		
 		// Apply all settings, and center the window
 		apply(true);
-		
-		// CAPTION CONFIG
-		
-		// This is the configuration of the custom window caption from this asset.
-		// If you do not wish to use it, keep this section commented out.
-		with captionConfig
-		{
-			// Make sure to disallow window resizing in the game options and set 'Borderless window' to on if available.
-			// Check the documentation for available settings.
-		}
-		
-		// Added right to left
-		var w = 64;
-		addButton("close", sprWindowButtons, 0, function()
-		{
-			game_end();
-		}, w);
-		addButton("maximize", sprWindowButtons, 1, function()
-		{
-			original_width = Screen.width;
-			original_height = Screen.height;
-			
-			Screen.width = display_get_width();
-			Screen.height = display_get_height();
-			
-			window_set_size(display_get_width(), display_get_height());
-			window_center();
-		}, w);
-		addButton("minimize", sprWindowButtons, 2, function()
-		{
-			window_minimise();
-		}, w);
 	}
 }

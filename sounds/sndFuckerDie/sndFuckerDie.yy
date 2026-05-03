@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndFuckerDie",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Fucker (Fireballer)",
+    "path":"folders/Sounds/SFX/Enemies/Fucker (Fireballer).yy",
   },
   "preload":true,
   "resourceType":"GMSound",

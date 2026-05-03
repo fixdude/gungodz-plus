@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrSave",
   "parent":{
-    "name":"Internal",
-    "path":"folders/Scripts/Internal.yy",
+    "name":"Game",
+    "path":"folders/Scripts/Game.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

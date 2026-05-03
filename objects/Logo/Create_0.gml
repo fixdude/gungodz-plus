@@ -6,3 +6,4 @@ startoff = 200;
 blink = 0;
 active = true;
 depth = 1;
+blink_max = 8;

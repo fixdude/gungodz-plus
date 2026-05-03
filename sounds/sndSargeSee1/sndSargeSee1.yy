@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndSargeSee1",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Sarge",
+    "path":"folders/Sounds/SFX/Enemies/Sarge.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

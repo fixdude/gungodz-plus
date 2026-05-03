@@ -40,23 +40,6 @@ else
 if speed > 3
 	speed = 3;
 
-// indiegame wall clipping shenanigans, but that's ok
-// i may fix the collision later.
-if place_meeting(x, y, wallParent)
-{
-	/*
-	if place_meeting(x, y, Wave)
-	{
-		sound_play(sndPlayerHit);
-		scrDamagePlayer(1);
-	}
-	*/
-
-	move_bounce_solid(true);
-}
-
-if is_desktop
-	window_mouse_set_locked(window_has_focus());
 if dead == false && UberCont.focus
 {
 	var d, v = (5 * (UberCont.sensitivity / 100));
@@ -135,7 +118,11 @@ if dead == false && win == false
 			gunanim = 0;
 		
 			if wep == Weapons.Knife
+			{
 				wep = knifewep;
+				if wep == Weapons.Knife
+					wep = Weapons.None;
+			}
 		}
 	}
 	
@@ -157,7 +144,7 @@ if dead == false && win == false
 	if InputReleased(INPUT_VERB.SHOOT)
 		scrFire(weapon, 2);
 		
-	if InputPressed(INPUT_VERB.MELEE)
+	if InputBufferPressed(INPUT_VERB.MELEE, 20)
 	{
 		if wep != Weapons.Knife && can_shoot == true
 		{
@@ -166,7 +153,7 @@ if dead == false && win == false
 				knifewep = Weapons.None;
 
 			wep = Weapons.Knife;
-			scrFire(weapons[Weapons.Knife], 0);
+			scrFire(weapons[wep], 0);
 		}
 	}
 }

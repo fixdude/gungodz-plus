@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndSoldierHit2",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Soldier",
+    "path":"folders/Sounds/SFX/Enemies/Soldier.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

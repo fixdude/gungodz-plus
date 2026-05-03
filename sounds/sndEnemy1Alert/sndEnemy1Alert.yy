@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndEnemy1Alert",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Enemy1",
+    "path":"folders/Sounds/SFX/Enemies/Enemy1.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

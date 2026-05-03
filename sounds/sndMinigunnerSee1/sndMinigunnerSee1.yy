@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"sndMinigunnerSee1",
   "parent":{
-    "name":"Sounds",
-    "path":"folders/Sounds.yy",
+    "name":"Minigunner",
+    "path":"folders/Sounds/SFX/Enemies/Minigunner.yy",
   },
   "preload":true,
   "resourceType":"GMSound",

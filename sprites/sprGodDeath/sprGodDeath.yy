@@ -43,8 +43,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Gun God",
+    "path":"folders/Sprites/Enemies/Gun God.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -153,8 +153,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"enemyGroup",
+    "path":"texturegroups/enemyGroup",
   },
   "type":0,
   "VTile":false,

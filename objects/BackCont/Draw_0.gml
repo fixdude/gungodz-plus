@@ -10,7 +10,7 @@ if init == true
 	if oldskool == true
 		angle = round(angle / 90) * 90;
 	
-	/*
+
 	if instance_exists(LEVEL4) || instance_exists(LEVEL5)
 	{
 		d3d_set_fog(false, c_black, -10000, 10000);
@@ -21,15 +21,15 @@ if init == true
 		
 		if UberCont.wld == 4 && UberCont.lev == 3 && instance_exists(Player)
 		{
-			if Player.win == 1
+			if Player.win == true
 			{
 				with pickup
-					glow = 0;
+					glow = false;
 				
-				night += 0.005;
+				night += 0.005 fmt;
 				
 				if night > 2
-					credithudx += 4;
+					credithudx += 4 fmt;
 				
 				if night > 13 && !instance_exists(SUPERCREDITS)
 					instance_create(0, 0, SUPERCREDITS);
@@ -42,7 +42,6 @@ if init == true
 		
 		d3d_set_hidden(true);
 	}
-	*/
 	
 	with Player
 		d3d_set_fog(fog == true, c_black, -10, hdr);

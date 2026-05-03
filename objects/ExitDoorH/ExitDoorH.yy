@@ -14,8 +14,8 @@
     "path":"folders/Objects/Assets/Doors.yy",
   },
   "parentObjectId":{
-    "name":"WallPlaneH",
-    "path":"objects/WallPlaneH/WallPlaneH.yy",
+    "name":"GameObject",
+    "path":"objects/GameObject/GameObject.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"tilExitDoor",
-    "path":"sprites/tilExitDoor/tilExitDoor.yy",
+    "name":"tilExitDoor1",
+    "path":"sprites/tilExitDoor1/tilExitDoor1.yy",
   },
   "spriteMaskId":null,
   "visible":false,

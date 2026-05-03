@@ -27,8 +27,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sprites",
-    "path":"folders/Sprites.yy",
+    "name":"Start|Exit",
+    "path":"folders/Sprites/Assets/General/Start|Exit.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
@@ -89,8 +89,8 @@
   "swatchColours":null,
   "swfPrecision":2.525,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"tileTexGroup",
+    "path":"texturegroups/tileTexGroup",
   },
   "type":0,
   "VTile":false,

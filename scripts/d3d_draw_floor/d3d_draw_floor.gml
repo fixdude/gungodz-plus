@@ -39,7 +39,31 @@ function d3d_draw_floor(x1, y1, z1, x2, y2, z2, tex = -1, hrepeat = 1, vrepeat =
         
 		var uvs = texture_get_uvs(tex);
 		
-		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3];
+		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3]
+		var ls = uvs[4], ts = uvs[5];
+		var w = (cr - cl), h = (cb - ct);
+		var rs = w - (w * uvs[6]) - ls;
+		var bs = h - (h * uvs[7]) - ts;
+		
+		var dir = point_direction(x1, y1, x2, y2);
+		var qx = lengthdir_x(1, dir);
+		var qy = lengthdir_y(1, dir);
+		var q = darcsin((z1 - z2) / point_distance_3d(x1, y1, z1, x2, y2, z2));
+		var qz = lengthdir_x(1, q) * lengthdir_y(1, q);
+		
+		var lsx = ls * qx;
+		var lsy = ls * qy;
+		var rsx = rs * qx;
+		var rsy = rs * qy;
+		var tsz = ts * qz;
+		var bsz = bs * qz;
+		
+		x1 += lsx; // Left side trimming
+		x2 += rsx; // Right side trimming
+		y1 += lsy; // Left side trimming
+		y2 += rsy; // Right side trimming
+		z1 += tsz * 2; // Top side trimming
+		z2 += bsz + tsz; // Bottom side trimming
 		
         __d3d_floor_internal(vb, x1, y1, z1, x2, y2, z2, hrepeat, vrepeat, c, a);
         

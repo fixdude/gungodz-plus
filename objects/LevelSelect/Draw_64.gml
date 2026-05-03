@@ -3,23 +3,18 @@ draw_set_color(c_black);
 draw_rectangle(0, 0, room_width, room_height, false);
 draw_set_alpha(1);
 
+with Button
+	event_perform(ev_draw, 0);
+	
 with LevelButton
 {
 	var level = other.l_info[wld, lev];
-	draw_self();
-	
-	if UberCont.beats[wld, lev] <= 0
-	{
-		image_index -= image_speed;
-		draw_sprite(sprLevelNotBeat, -1, x, y);
-	}
 	
 	draw_set_font(fntS);
 	draw_set_halign(fa_left);
 	draw_set_valign(fa_top);
 	draw_set_color(c_black);
 	
-	var unlocked = UberCont.unlok[wld, lev];
 	if unlocked == true
 	{
 		draw_text_ext(x + other.thoff, y + other.tvoff, string_hash_to_newline(level.name), 5, 100);
@@ -40,8 +35,6 @@ with LevelButton
 			dir += 6;
 		}
 	}
-	else
-		draw_sprite_ext(sprLevelNotBeat, -1, x, y, 1, 1, 0, c_black, 0.9);
 	
 	if (unlocked == true && UberCont.plays[wld, lev] == 0)
 	|| (wld == 4 && lev == 4 && other.stars == 52)
@@ -52,23 +45,6 @@ with LevelButton
 		draw_text(x + 7, y + 1, string(wld * 10));
 		draw_sprite(sprStar, 0, x + 1, y + 2);
 	}
-}
-
-draw_set_font(fntS);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_color(c_black);
-	
-with CreditsButton
-{
-	draw_sprite(sprite_index, -1, x, y);
-	draw_text(x + other.thoff, y + other.tvoff, "CREDITZ");
-}
-
-with RemapButton
-{
-	draw_sprite(sprite_index, -1, x, y);
-	draw_text_ext(x + other.thoff, y + other.tvoff, "CONTROLS", 0, 52);
 }
 
 draw_set_color(c_white);
