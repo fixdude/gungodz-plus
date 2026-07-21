@@ -202,4 +202,4 @@ function __internalScreen()
 
 __internalScreen();
 global.__internalScreenStatic = static_get(__internalScreen);
-__ScreenConfig();
+__GScreenConfig();
