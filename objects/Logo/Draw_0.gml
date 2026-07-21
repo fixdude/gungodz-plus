@@ -11,10 +11,10 @@ draw_triangle(x - 42, y + 43, x + 42, y + 43, x, y - 41, false);
 //draw_sprite(sprLogoTriangle, -1, x, y);
 draw_set_color(c_white);
 
-if active == false
+if (active == false)
 	exit;
 
-if startoff > 0
+if (startoff > 0)
 {
 	startoff -= 5 fmt;
 	draw_sprite(sprLogoLeft, -1, (x + 22) - startoff, y);
@@ -22,7 +22,7 @@ if startoff > 0
 }
 else
 {
-	if blink < blink_max
+	if (blink < blink_max)
 		blink += (0.5 fmt);
 	
 	draw_sprite(sprLogoLeft, -1, x + 22, y);
@@ -31,7 +31,7 @@ else
 }
 
 var b = blink;
-if b > blink_max / 2
+if (b > blink_max / 2)
 	b = blink_max - b;
 	
 draw_sprite_ext(sprLogoEye, b, x, y + 6, 1, 1, 0, c_white, 1);

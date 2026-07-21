@@ -5,9 +5,9 @@ function shine_set_info(spr, x = undefined, y = undefined)
 	var info = global._shineinfo;
 	info[0] = sprite_get_width(spr);
 	info[1] = sprite_get_height(spr);
-	if x != undefined
+	if (x != undefined)
 		info[2] = x;
-	if y != undefined
+	if (y != undefined)
 		info[3] = y;
 	return info;
 }
@@ -15,9 +15,9 @@ function shine_set_info(spr, x = undefined, y = undefined)
 function shine_start(x = undefined, y = undefined)
 {
 	var info = global._shineinfo;
-	if x != undefined
+	if (x != undefined)
 		info[2] = x;
-	if y != undefined
+	if (y != undefined)
 		info[3] = y;
 	gpu_set_stencil_enable(true);
 	gpu_set_stencil_func(cmpfunc_notequal);
@@ -28,12 +28,15 @@ function shine_start(x = undefined, y = undefined)
 
 function shine_end(pos, width = 8, spd = 1, once = true, col = c_white, dir = -45)
 {
-	gpu_set_alphatestenable(global.d3d);
+	gpu_set_alphatestenable(false);
 	gpu_set_stencil_ref(1);
 	draw_clear_stencil(0);
 	
-	if pos < 0
-		return gpu_set_stencil_enable(false);
+	if (pos < 0)
+	{
+		gpu_set_stencil_enable(false);
+		return;
+	}
 		
 	var info = global._shineinfo,  len = max(info[0], info[1]);
 	
@@ -49,9 +52,9 @@ function shine_end(pos, width = 8, spd = 1, once = true, col = c_white, dir = -4
 	
 	gpu_set_stencil_enable(false);
 	
-	while pos >= xx
+	while (pos >= xx)
 	{
-		if once
+		if (once)
 			return -1;
 		pos -= info[0];
 	}

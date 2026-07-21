@@ -1,6 +1,6 @@
-if instance_exists(Player)
+if (instance_exists(Player))
 {
-	if point_distance(x + 16, y + 16, Player.x, Player.y) < 32 && move == false
+	if (point_distance(x + 16, y + 16, Player.x, Player.y) < 32 && move == false)
 	{
 		sound_play(sndDoor);
 		move = true;

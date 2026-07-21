@@ -29,6 +29,7 @@ function sound_emitter(x, y, z = 0)
 	var emt = audio_emitter_create();
 	audio_emitter_position(emt, x, y, z);
 	audio_emitter_bus(emt, MusCont.sfx_bus);
+	return emt;
 }
 
 function sound_emitter_pos(emt, x, y, z = 0)
@@ -40,5 +41,8 @@ function sound_emitter_pos(emt, x, y, z = 0)
 #macro sound_stop audio_stop_sound
 #macro sound_stop_all audio_stop_all
 #macro sound_volume audio_sound_gain
+
+#macro sound_bus audio_bus_create
+#macro sound_emitter_bus audio_emitter_bus
 
 #macro scrMusic MusCont.play

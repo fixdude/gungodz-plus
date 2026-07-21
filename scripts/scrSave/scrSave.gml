@@ -13,13 +13,13 @@ function scrSave()
 	// If they can go past that, most values will be shown as 'A LOT' (if shown)
 	
 	// 0, 1, 2, 4, 8, 16, 32, 64, 128, 256
-	with UberCont
+	with (UberCont)
 	{
 		var dix = 1, diy = 1;
-		repeat NUM_WORLDS
+		repeat (NUM_WORLDS)
 		{
 			var s = 0x0000, u = unlok[dix];
-			repeat NUM_LEVELS
+			repeat (NUM_LEVELS)
 			{
 				buffer_write(buff, typ, plays[dix, diy]);
 				buffer_write(buff, typ, beats[dix, diy]); // Counted, but never shown
@@ -29,7 +29,7 @@ function scrSave()
 				buffer_write(buff, typ, stars[dix, diy]);
 				
 				// unlok
-				if u[dix]
+				if (u[dix])
 					s |= dix + 1;
 				
 				dix++;
@@ -43,7 +43,7 @@ function scrSave()
 	}
 	
 	// BASE ACHIEVEMENTS
-	with ACHIEVEMENT
+	with (ACHIEVEMENT)
 	{
 		buffer_write(buff, typ, A1[ACH.UNLOCKED]);
 		buffer_write(buff, typ, A2[ACH.UNLOCKED]);
@@ -62,7 +62,7 @@ function scrSave()
 	var buff = buffer_create(1024, buffer_grow, 1), typ = buffer_u32;
 	buffer_seek(buff, buffer_seek_start, 0);
 	
-	with UberCont
+	with (UberCont)
 	{
 		// These are never shown anywhere (or have a reason to be), so I'm not saving them
 		/*
@@ -71,9 +71,9 @@ function scrSave()
 		*/
 	
 		var dix = 1, diy = 1;
-		repeat NUM_WORLDS
+		repeat (NUM_WORLDS)
 		{
-			repeat NUM_LEVELS
+			repeat (NUM_LEVELS)
 			{
 				buffer_write(buff, typ, times[dix, diy]);
 				dix++;
@@ -93,40 +93,38 @@ function scrSave()
 function scrLoad()
 {
 	FORCEINLINE;
-	if !file_exists("gg1.bin") && !file_exists("gg2.bin")
+	if (!file_exists("gg1.bin") && !file_exists("gg2.bin"))
 		return false;
 	var buff = buffer_load("gg1.bin"), typ = buffer_u8;
-	if !buffer_exists(buff)
+	if (!buffer_exists(buff))
 		return false;
 	
 	buffer_seek(buff, buffer_seek_start, 0);
 	var savedata_version = buffer_read(buff, typ);
 	
-	with UberCont
+	with (UberCont)
 	{
-		UberCont.tim = buffer_read(buff, typ);
-		UberCont.totalkills = buffer_read(buff, typ);
-		dix = 1;
-		diy = 1;
-	
+		tim = buffer_read(buff, typ);
+		totalkills = buffer_read(buff, typ);
+		
 		var dix = 1, diy = 1;
-		repeat NUM_WORLDS
+		repeat (NUM_WORLDS)
 		{
 			var u = unlok[dix], s = buffer_read(buff, typ);
-			repeat NUM_LEVELS
+			repeat (NUM_LEVELS)
 			{
-				UberCont.plays[dix, diy] = buffer_read(buff, typ);
-				UberCont.beats[dix, diy] = buffer_read(buff, typ);
-				UberCont.kills[dix, diy] = buffer_read(buff, typ);
-				UberCont.items[dix, diy] = buffer_read(buff, typ);
-				UberCont.stars[dix, diy] = buffer_read(buff, typ);
+				plays[dix, diy] = buffer_read(buff, typ);
+				beats[dix, diy] = buffer_read(buff, typ);
+				kills[dix, diy] = buffer_read(buff, typ);
+				items[dix, diy] = buffer_read(buff, typ);
+				stars[dix, diy] = buffer_read(buff, typ);
 				
 				// unlok
 				var b = dix;
-				if b == 3
+				if (b == 3)
 					b = 4;
 					
-				if s | b
+				if (s | b)
 					u[dix] = true;
 
 				dix++;
@@ -136,7 +134,7 @@ function scrLoad()
 			var s = 0x0000, u = unlok[dix];
 			for (var i = 0; i < NUM_LEVELS; i++)
 			{
-				if u[i]
+				if (u[i])
 					s |= i + 1;
 			}
 		
@@ -148,14 +146,14 @@ function scrLoad()
 	buffer_delete(buff);
 	
 	var buff = buffer_load("gg2.bin"), typ = buffer_u32;
-	if !buffer_exists(buff)
+	if (!buffer_exists(buff))
 		return false; // That's weird, but carry on
 		
-	with UberCont
+	with (UberCont)
 	{
-		repeat NUM_WORLDS
+		repeat (NUM_WORLDS)
 		{
-			repeat NUM_LEVELS
+			repeat (NUM_LEVELS)
 			{
 				UberCont.times[dix, diy] = buffer_read(buff, typ);
 				dix++;

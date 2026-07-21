@@ -7,6 +7,6 @@ with StatCont
 
 if is_string(achiev)
 {
-	if steam_on
+	if (steam_enabled)
 		steam_set_achievement(achiev);
 }

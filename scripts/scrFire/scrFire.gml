@@ -1,26 +1,26 @@
-function scrFire(weapon, typ)
+function scrFire(weapon/*:Weapon*/, typ/*:Enum.WepPressType*/)
 {
-	if ammo[wep] == 0
+	if (ammo[wep] == 0)
 	{
-		if typ == 0
+		if (typ == WepPressType.Press)
 			sound_play(sndEmpty);
 		return false;
 	}
 	
 	var fired = false;
-	if can_shoot == true && ammo[wep] > 0
+	if (can_shoot == true && ammo[wep] > 0)
 	{
 		var gold = BackCont.gold;
-		if typ == 0 && weapon.press != noone
+		if (typ == WepPressType.Press && weapon.press != noone)
 			fired = weapon.press(id, gold);
-		if typ == 1 && weapon.hold != noone
+		if (typ == WepPressType.Hold && weapon.hold != noone)
 			fired = weapon.hold(id, gold);
-		if typ == 2 && weapon.released != noone
+		if (typ == WepPressType.Release && weapon.released != noone)
 			fired = weapon.released(id, gold);
 			
-		if fired == true
+		if (fired == true)
 		{
-			if gold
+			if (gold)
 				scrShake(weapon.goldshake);
 				
 			can_shoot = false;

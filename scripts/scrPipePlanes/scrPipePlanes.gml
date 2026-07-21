@@ -1,13 +1,13 @@
 function scrPipePlanes()
 {
-	with Pipe
+	with (Pipe)
 	{
 		tt1 = sprite_get_texture(sprPipeEntrance, 0);
 		tt2 = sprite_get_texture(tilWall2_1, 1);
 		
-		if place_free(x, y - 1) && place_meeting(x, y - 1, Tile) && !place_meeting(x, y - 1, Pipe)
+		if (place_free(x, y - 1) && place_meeting(x, y - 1, Tile) && !place_meeting(x, y - 1, Pipe))
 		{
-			with instance_create(x, y, WallPlaneH)
+			with (instance_create(x, y, WallPlaneH))
 			{
 				x1 = round(x);
 				y1 = round(y);
@@ -19,9 +19,9 @@ function scrPipePlanes()
 			}
 		}
 		
-		if place_free(x, y + 1) && place_meeting(x, y + 1, Tile) && !place_meeting(x, y + 1, Pipe)
+		if (place_free(x, y + 1) && place_meeting(x, y + 1, Tile) && !place_meeting(x, y + 1, Pipe))
 		{
-			with instance_create(x, y, WallPlaneH)
+			with (instance_create(x, y, WallPlaneH))
 			{
 				x1 = round(x);
 				y1 = round(y + 32);
@@ -33,9 +33,9 @@ function scrPipePlanes()
 			}
 		}
 		
-		if place_free(x - 1, y) && place_meeting(x - 1, y, Tile) && !place_meeting(x - 1, y, Pipe)
+		if (place_free(x - 1, y) && place_meeting(x - 1, y, Tile) && !place_meeting(x - 1, y, Pipe))
 		{
-			with instance_create(x, y, WallPlaneV)
+			with (instance_create(x, y, WallPlaneV))
 			{
 				x1 = round(x);
 				y1 = round(y);
@@ -47,9 +47,9 @@ function scrPipePlanes()
 			}
 		}
 		
-		if place_free(x + 1, y) && place_meeting(x + 1, y, Tile) && !place_meeting(x + 1, y, Pipe)
+		if (place_free(x + 1, y) && place_meeting(x + 1, y, Tile) && !place_meeting(x + 1, y, Pipe))
 		{
-			with instance_create(x, y, WallPlaneV)
+			with (instance_create(x, y, WallPlaneV))
 			{
 				x1 = round(x + 32);
 				y1 = round(y);
@@ -62,13 +62,13 @@ function scrPipePlanes()
 		}
 	}
 	
-	with BarrelPipe
+	with (BarrelPipe)
 	{
 		tt1 = sprite_get_texture(sprBarrelEntrance, 0);
 		
-		if place_free(x, y - 1) && place_meeting(x, y - 1, Tile) && !place_meeting(x, y - 1, BarrelPipe)
+		if (place_free(x, y - 1) && place_meeting(x, y - 1, Tile) && !place_meeting(x, y - 1, BarrelPipe))
 		{
-			with instance_create(x, y, WallPlaneH)
+			with (instance_create(x, y, WallPlaneH))
 			{
 				x1 = round(x);
 				y1 = round(y);
@@ -79,9 +79,9 @@ function scrPipePlanes()
 			}
 		}
 		
-		if place_free(x, y + 1) && place_meeting(x, y + 1, Tile) && !place_meeting(x, y + 1, BarrelPipe)
+		if (place_free(x, y + 1) && place_meeting(x, y + 1, Tile) && !place_meeting(x, y + 1, BarrelPipe))
 		{
-			with instance_create(x, y, WallPlaneH)
+			with (instance_create(x, y, WallPlaneH))
 			{
 				x1 = round(x);
 				y1 = round(y + 32);
@@ -92,9 +92,9 @@ function scrPipePlanes()
 			}
 		}
 		
-		if place_free(x - 1, y) && place_meeting(x - 1, y, Tile) && !place_meeting(x - 1, y, BarrelPipe)
+		if (place_free(x - 1, y) && place_meeting(x - 1, y, Tile) && !place_meeting(x - 1, y, BarrelPipe))
 		{
-			with instance_create(x, y, WallPlaneV)
+			with (instance_create(x, y, WallPlaneV))
 			{
 				x1 = round(x);
 				y1 = round(y);
@@ -105,9 +105,9 @@ function scrPipePlanes()
 			}
 		}
 		
-		if place_free(x + 1, y) && place_meeting(x + 1, y, Tile) && !place_meeting(x + 1, y, BarrelPipe)
+		if (place_free(x + 1, y) && place_meeting(x + 1, y, Tile) && !place_meeting(x + 1, y, BarrelPipe))
 		{
-			with instance_create(x, y, WallPlaneV)
+			with (instance_create(x, y, WallPlaneV))
 			{
 				x1 = round(x + 32);
 				y1 = round(y);

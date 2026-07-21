@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GM3D_Header",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GM3D_Header",
+  "parent":{
+    "name":"Headers",
+    "path":"folders/Headers.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

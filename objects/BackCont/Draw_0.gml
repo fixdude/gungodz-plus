@@ -1,56 +1,23 @@
-if evil == true
+if (evil == true)
 {
 	draw_set_blend_mode(choose(bm_add, bm_subtract, bm_subtract));
 	//__background_set_colour(-1);
 }
 
-if init == true
+if (init == true)
 {
 	angle = Player.angle;
-	if oldskool == true
+	if (oldskool == true)
 		angle = round(angle / 90) * 90;
 	
-
-	if instance_exists(LEVEL4) || instance_exists(LEVEL5)
-	{
-		d3d_set_fog(false, c_black, -10000, 10000);
-		d3d_set_hidden(false);
-		draw_sprite_ext(bakSky4, 0, (Player.angle / 360) * 640, 0, 1, 1, 0, c_white, 1);
-		draw_sprite_ext(bakSky4, 0, ((Player.angle / 360) * 640) - 640, 0, 1, 1, 0, c_white, 1);
-		draw_sprite_ext(bakSky4, 0, ((Player.angle / 360) * 640) - 1280, 0, 1, 1, 0, c_white, 1);
-		
-		if UberCont.wld == 4 && UberCont.lev == 3 && instance_exists(Player)
-		{
-			if Player.win == true
-			{
-				with pickup
-					glow = false;
-				
-				night += 0.005 fmt;
-				
-				if night > 2
-					credithudx += 4 fmt;
-				
-				if night > 13 && !instance_exists(SUPERCREDITS)
-					instance_create(0, 0, SUPERCREDITS);
-				
-				draw_sprite_ext(bakSkyNight, 0, (Player.angle / 360) * 640, 0, 1, 1, 0, c_white, night / 2);
-				draw_sprite_ext(bakSkyNight, 0, ((Player.angle / 360) * 640) - 640, 0, 1, 1, 0, c_white, night / 2);
-				draw_sprite_ext(bakSkyNight, 0, ((Player.angle / 360) * 640) - 1280, 0, 1, 1, 0, c_white, night / 2);
-			}
-		}
-		
-		d3d_set_hidden(true);
-	}
-	
-	with Player
+	with (Player)
 		d3d_set_fog(fog == true, c_black, -10, hdr);
 	
 	xshake = random(shake) - (shake / 2);
 	yshake = random(shake) - (shake / 2);
 	zshake = random(shake) - (shake / 2);
 	
-	if shake > 0
+	if (shake > 0)
 	{
 		shake *= 0.9;
 		shake -= 0.05;
@@ -58,7 +25,45 @@ if init == true
 	else
 		shake = 0;
 	
-	if oldskool == true
+	if (instance_exists(LEVEL4) || instance_exists(LEVEL5))
+	{
+		d3d_set_fog(false, c_black, -10000, 10000);
+		d3d_set_hidden(false);
+		
+		var w = GScreen.width, h = GScreen.height, m = (w / 2),
+		ww = (w / 320), hh = (h / 100),
+		s = max(ww, hh);
+		if (night < 2)
+		{
+			draw_sprite_ext(bakSky4, 0, ((Player.angle / m) * w), 0, s, s, 0, c_white, 1);
+			draw_sprite_ext(bakSky4, 0, ((Player.angle / m) * w) - (320 * s), 0, s, s, 0, c_white, 1);
+			draw_sprite_ext(bakSky4, 0, ((Player.angle / m) * w) - ((320 * s) * 2), 0, s, s, 0, c_white, 1);
+		}
+		
+		if (UberCont.wld == 4 && UberCont.lev == 3 && instance_exists(Player))
+		{
+			if (Player.win == true)
+			{
+				with (pickup)
+					glow = false;
+				
+				night += 0.005 fmt;
+				
+				if (night > 2)
+					credithudx += 4 fmt;
+				if (night > 13 && !instance_exists(SUPERCREDITS))
+					instance_create(0, 0, SUPERCREDITS);
+				
+				draw_sprite_ext(bakSkyNight, 0, ((Player.angle / m) * w), 0, s, s, 0, c_white, night / 2);
+				draw_sprite_ext(bakSkyNight, 0, ((Player.angle / m) * w) - w, 0, s, s, 0, c_white, night / 2);
+				draw_sprite_ext(bakSkyNight, 0, ((Player.angle / m) * w) - (w * 2), 0, s, s, 0, c_white, night / 2);
+			}
+		}
+		
+		d3d_set_hidden(true);
+	}
+	
+	if (oldskool == true)
 		d3d_set_projection_ext(
 			(round((Player.x - 16) / 32) * 32) + 16 + xshake,
 			(round((Player.y - 16) / 32) * 32) + 16 + yshake,
@@ -72,6 +77,6 @@ if init == true
 			Player.x + xshake, Player.y + yshake, Player.z + sin(Player.walk / 10) + zshake + max(0, (BackCont.night * 10) - 100),
 			Player.x + lengthdir_x(64, angle) + xshake, Player.y + lengthdir_y(64, angle) + yshake, Player.z + sin(Player.walk / 10) + zshake + max(0, (BackCont.night * 10) - 100),
 			Player.tilt, 0, 1, 60, 1.6, 1, 10000);
-	
+			
 	scrDraw3d();
 }

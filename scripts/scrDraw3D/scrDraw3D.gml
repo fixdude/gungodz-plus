@@ -2,7 +2,7 @@ function scrDraw3d()
 {
 	with (Bak)
 	{
-		if instance_exists(LEVEL5)
+		if (instance_exists(LEVEL5))
 			d3d_draw_floor(-96, -96, z, room_width + 96, room_height + 96, z, tt1, 1, 1);
 		else
 			d3d_draw_floor(32, 32, z, room_width - 32, room_height - 32, z, tt1, (room_width / 64) - 1, (room_height / 64) - 1);
@@ -10,24 +10,33 @@ function scrDraw3d()
 
 	with (Ceil)
 	{
-		if !instance_exists(LEVEL5)
+		if (!instance_exists(LEVEL5))
 			d3d_draw_floor(32, 32, z, room_width - 32, room_height - 32, z, tt1, (room_width / 64) - 1, (room_height / 64) - 1);
 	}
+	
+	var ang = angle / (360 * 2);
+	if (ang > 0.5)
+		ang = 1 - ang;
+		
+	var hir = merge_color(c_white, c_ltgray, ang);
+	var vir = merge_color(c_ltgray, c_white, ang);
 
-	draw_set_color(c_ltgray);
+	gpu_set_alphatestenable(true);
+	
+	draw_set_color(vir);
 
 	with (WallPlaneV)
 	{
-		if h != 3
+		if (h != 3)
 			d3d_draw_wall_simple(x1, y1, 32, x2, y2, 0, tt1);
 	
-		if h == 2
+		if (h == 2)
 			d3d_draw_wall_simple(x1, y1, 64, x2, y2, 32, tt2);
 	}
 	
 	with (StartDoorV)
 	{
-		if dist < dist_max
+		if (dist < dist_max)
 		{
 			d3d_draw_wall_simple(x1, y1 - dist, 32, x2, y2 - dist, 0, ttL);
 			d3d_draw_wall_simple(x1, y1 + dist, 32, x2, y2 + dist, 0, ttR);
@@ -40,15 +49,17 @@ function scrDraw3d()
 		d3d_draw_wall_simple(x + 14, y, 32, x + 14, y + 32, 0, tt1);
 		d3d_draw_wall_simple(x + 18, y, 32, x + 18, y + 32, 0, tt1);
 	}
+	
+	with (BarV)
+		d3d_draw_wall_simple(x + 16, y, 32, x + 16, y + 32, 0, tt1);
+		
+	draw_set_color(hir);
 
 	with (DoorH)
 	{
 		d3d_draw_wall_simple(x, y, 32, x, y + 32, 0, ttS);
 		d3d_draw_wall_simple(x + 32, y, 32, x + 32, y + 32, 0, ttS);
 	}
-
-	with (BarV)
-		d3d_draw_wall_simple(x + 16, y, 32, x + 16, y + 32, 0, tt1);
 
 	with (SecretWallH)
 		d3d_draw_wall_simple(x + 32, y, 32, x + 32, y + 32, 0, tt1);
@@ -69,18 +80,20 @@ function scrDraw3d()
 		d3d_draw_wall_simple(x, y + 32, 64, x + 32, y + 32, 32, tt2);
 		d3d_draw_wall_simple(x, y + 32, 32, x + 32, y + 32, 0, tt1);
 	}
+	
+	draw_set_color(hir);
 
 	with (WallPlaneH)
 	{
 		d3d_draw_wall_simple(x1, y1, 32, x2, y2, 0, tt1);
 	
-		if h == 2
+		if (h == 2)
 			d3d_draw_wall_simple(x1, y1, 64, x2, y2, 32, tt2);
 	}
 	
 	with (StartDoorH)
 	{
-		if dist < dist_max
+		if (dist < dist_max)
 		{
 			d3d_draw_wall_simple(x1 - dist, y1, 32, x2 - dist, y2, 0, ttL);
 			d3d_draw_wall_simple(x1 + dist, y1, 32, x2 + dist, y2, 0, ttR);
@@ -93,6 +106,8 @@ function scrDraw3d()
 		d3d_draw_wall_simple(x, y + 14, 32, x + 32, y + 14, 0, tt1);
 		d3d_draw_wall_simple(x, y + 18, 32, x + 32, y + 18, 0, tt1);
 	}
+	
+	draw_set_color(vir);
 
 	with (DoorV)
 	{
@@ -100,12 +115,16 @@ function scrDraw3d()
 		d3d_draw_wall_simple(x, y + 32, 32, x + 32, y + 32, 0, ttS);
 	}
 
+	draw_set_color(hir);
+	
 	with (BarH)
 		d3d_draw_wall_simple(x, y + 16, 32, x + 32, y + 16, 0, tt1);
+		
+	draw_set_color(c_white);
 
 	with (plane)
 	{
-		if glow == true
+		if (glow == true)
 			d3d_set_fog(false, c_black, -10, Player.hdr);
 			
 		d3d_draw_wall_simple(
@@ -117,15 +136,15 @@ function scrDraw3d()
 		z,
 		tt1);
 	
-		if glow == true
-		&& Player.fog == true
+		if (glow == true
+		&& Player.fog == true)
 			d3d_set_fog(true, c_black, -10, Player.hdr);
 	}
 	
 	with (BulletTrail)
 	{
-		if x != xstart || y != ystart || z != zstart
-			d3d_draw_line(xstart, ystart, zstart, x, y, z, 2, image_blend, image_alpha);
+		if (x != xstart || y != ystart || z != zstart)
+			d3d_draw_line(xstart, ystart, zstart, x, y, z, 0.4, image_blend, image_alpha, image_blend, image_alpha, false);
 	}
 
 	with (Exit)
@@ -134,7 +153,7 @@ function scrDraw3d()
 		d3d_draw_floor_simple(x, y, x + 32, y + 32, 31.95, ttC);
 	}
 
-	if !instance_exists(LEVEL1) && !instance_exists(LEVEL5)
+	if (!instance_exists(LEVEL1) && !instance_exists(LEVEL5))
 	{
 		with (Start)
 		{
@@ -142,4 +161,6 @@ function scrDraw3d()
 			d3d_draw_floor_simple(x, y, x + 32, y + 32, 31.95, ttC);
 		}
 	}
+	
+	gpu_set_alphatestenable(false);
 }

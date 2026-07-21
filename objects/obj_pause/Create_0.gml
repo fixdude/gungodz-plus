@@ -8,7 +8,7 @@ kilper = min(100, round((StatCont.kil / StatCont.kilmax) * 100));
 itmper = min(100, round((StatCont.itm / StatCont.itmmax) * 100));
 tim1 = floor(StatCont.tim / 60);
 tim2 = scrZero(round((StatCont.tim - (tim1 * 60)) * (5 / 3)));
-with UberCont
+with (UberCont)
 	other.par = l_info[wld, lev].par_time;
 	
 exittime = 0;

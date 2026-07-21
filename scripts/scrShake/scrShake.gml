@@ -1,5 +1,6 @@
-function scrShake(amount)
+function scrShake(amount/*:number*/)
 {
-	with BackCont
+	FORCEINLINE;
+	with (BackCont)
 		shake += amount;
 }

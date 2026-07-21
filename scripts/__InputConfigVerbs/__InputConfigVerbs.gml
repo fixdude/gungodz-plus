@@ -13,10 +13,10 @@ function __InputConfigVerbs()
 		LOOK_RIGHT,
 		
 		SHOOT,
-		MENU_ACCEPT,
 		MELEE,
 		NEXT_WEAPON,
 		PAUSE,
+		MENU_ACCEPT,
 		
 		MAP, // Added by this version
 	}
@@ -50,15 +50,14 @@ function __InputConfigVerbs()
 	
 	var faceA = !INPUT_ON_SWITCH  ? gp_face1 : gp_face2,
 		  faceB = !INPUT_ON_SWITCH  ? gp_face2 : gp_face1;
-		
+	
 	InputDefineVerb(INPUT_VERB.PAUSE, "pause", [vk_backspace, vk_escape], gp_start);
 	InputDefineVerb(INPUT_VERB.MENU_ACCEPT, "menu accept", vk_space, faceA);
 	InputDefineVerb(INPUT_VERB.SHOOT, "shoot", mb_left, [gp_face3, faceB, gp_shoulderr]);
-	InputDefineVerb(INPUT_VERB.NEXT_WEAPON, "next weapon", vk_lcontrol, [gp_face3, faceB]);
+	InputDefineVerb(INPUT_VERB.NEXT_WEAPON, "next weapon", [vk_lcontrol, mb_wheel_up, mb_wheel_down], [gp_face3, faceB]);
 	InputDefineVerb(INPUT_VERB.MELEE, "melee", mb_right, [gp_face4, gp_shoulderl]);
 	
 	InputDefineVerb(INPUT_VERB.MAP, "map", vk_tab, INPUT_ON_PS5 ? gp_touchpadbutton : gp_select);
-	
 	
 	InputDefineCluster(INPUT_CLUSTER.NAVIGATION, INPUT_VERB.UP, INPUT_VERB.RIGHT, INPUT_VERB.DOWN, INPUT_VERB.LEFT);
 	InputDefineCluster(INPUT_CLUSTER.LOOKING, INPUT_VERB.LOOK_UP, INPUT_VERB.LOOK_RIGHT, INPUT_VERB.LOOK_DOWN, INPUT_VERB.LOOK_LEFT);

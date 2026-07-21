@@ -6,7 +6,7 @@ function scrDrawHUD()
 	d3d_set_projection_ortho(0, 0, 320, 200, 0);
 	d3d_set_fog(false, c_black, -10, 480);
 
-	if Player.dead == false
+	if (Player.dead == false)
 	{
 		var weapon = Player.weapons[Player.wep];
 		var wepspr = weapon.sprite_index;
@@ -38,7 +38,7 @@ function scrDrawHUD()
 		draw_set_color(c_white);
 		draw_set_font(fntM);
 	
-		if Player.win == true
+		if (Player.win == true)
 			scrDrawVictory();
 	
 		kil = 0;
@@ -53,7 +53,7 @@ function scrDrawHUD()
 		draw_set_halign(fa_right);
 		amm = string(Player.ammo[Player.wep]);
 	
-		if Player.wep == 5
+		if (Player.wep == 5)
 		{
 			amm = string(Player.ammo[Player.knifewep]);
 			draw_sprite(sprHUDAmmo, Player.knifewep, (w - 12) + credithudx, h - 10);
@@ -74,7 +74,7 @@ function scrDrawHUD()
 		draw_set_color(c_white);
 	}
 
-	with FadeIn
+	with (FadeIn)
 	{
 		draw_set_color(c_black);
 		draw_set_alpha(alpha);
@@ -83,26 +83,26 @@ function scrDrawHUD()
 		draw_set_alpha(1);
 	}
 
-	with SUPERCREDITS
+	with (SUPERCREDITS)
 	{
-		if back == 0
+		if (back == 0)
 		{
-			if alpha < 2
+			if (alpha < 2)
 				alpha += 0.01;
 			else
 				back = 1;
 		}
 	
-		if back == 1
+		if (back == 1)
 		{
-			if alpha > 0
+			if (alpha > 0)
 				alpha -= 0.01 fmt;
 			else
 			{
-				if thing < things
+				if (thing < things)
 					thing++;
 			
-				if thing == things && !instance_exists(Credits)
+				if (thing == things && !instance_exists(Credits))
 					instance_create(0, 0, Credits);
 			
 				back = 0;

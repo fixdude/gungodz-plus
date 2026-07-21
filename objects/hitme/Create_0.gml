@@ -2,7 +2,7 @@ event_inherited();
 
 invincible = false;
 
-if place_free(x + 16, y + 16)
+if (place_free(x + 16, y + 16))
 {
 	x += 16;
 	y += 16;
@@ -23,3 +23,5 @@ my_asound = noone;
 count_death = false;
 can_corpse = true;
 my_health = 1;
+kick = 0;
+active = false;

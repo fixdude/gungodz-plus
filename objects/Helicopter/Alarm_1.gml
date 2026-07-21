@@ -1,9 +1,9 @@
-if up == true
+if (up == true)
 {
 	alarm[1] = (100 + (my_health / 4)) fmt;
 	alarm[4] = 10 fmt;
 	
-	if mode == 0
+	if (mode == 0)
 		sound_play_3d(sndMinigunEnd, x, y, z);
 	
 	fire = 0;

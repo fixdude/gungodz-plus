@@ -35,8 +35,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"tilExitDoor1",
-    "path":"sprites/tilExitDoor1/tilExitDoor1.yy",
+    "name":"tilExitDoor",
+    "path":"sprites/tilExitDoor/tilExitDoor.yy",
   },
   "spriteMaskId":null,
   "visible":false,

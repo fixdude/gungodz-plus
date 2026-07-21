@@ -17,7 +17,7 @@ function scr_startAchievements()
 {
 	FORCEINLINE;
 	
-	with ACHIEVEMENT
+	with (ACHIEVEMENT)
 	{
 		var i = 0;
 		// Out of order, but what can I do	
@@ -53,7 +53,7 @@ function scr_startAchievements()
 		for (var i = 0; i < amount; i++)
 		{
 			var achiev = self[$ names[i]];
-			if use_steam && steam_on
+			if (use_steam && steam_enabled)
 				achiev[ACH.UNLOCKED] |= steam_get_achievement(achiev[ACH.TITLE]);
 		}
 	}
@@ -62,20 +62,20 @@ function scr_startAchievements()
 function scr_updateAchievements()
 {
 	FORCEINLINE;
-	if !instance_exists(obj_pause)
+	if (!instance_exists(obj_pause))
 	{
 		var n = ACHIEVEMENT.names, a = ACHIEVEMENT.amount;
 		for (var i = 0; i < a; i++)
 		{
 			var name = n[i], achiev = ACHIEVEMENT[$ name];
-			if achiev[ACH.UNLOCKED]
+			if (achiev[ACH.UNLOCKED])
 				continue;
 			
 			if (instance_exists(Player) && achiev[ACH.RM] == 0) || room == achiev[ACH.RM]
 			{
 				var r = achiev[ACH.FUNC]();
 				achiev[ACH.UNLOCKED] |= r;
-				if use_steam && steam_on && r == true && !steam_get_achievement(name)
+				if (use_steam && steam_enabled && r == true && !steam_get_achievement(name))
 					steam_set_achievement(name);
 			}
 		}

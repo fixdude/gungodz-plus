@@ -1,10 +1,12 @@
-if active
+if (active)
 {
-	if gp_any(gamepad_button_check_pressed, 0)
+	if (gp_any(gamepad_button_check_pressed, 0)
 	|| keyboard_check_pressed(vk_anykey)
-	|| InputMouseCheck(mb_any)
+	|| InputMouseCheck(mb_any))
 	{
-		tgroup(logoGroup).unload();
+		var t/*:TexGroup*/ = "logoGroup";
+		texturegroup_unload(t);
+		
 		instance_create(x, y, LevelSelect);
 		active = false;
 	}

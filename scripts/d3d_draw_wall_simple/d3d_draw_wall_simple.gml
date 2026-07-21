@@ -39,7 +39,7 @@ function d3d_draw_wall_simple(x1, y1, z1, x2, y2, z2, tex = -1) {
         
 		var uvs = texture_get_uvs(tex);
 		
-		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3]
+		var cl = uvs[0], ct = uvs[1], cr = uvs[2], cb = uvs[3];
 		var ls = uvs[4], ts = uvs[5];
 		var w = (cr - cl), h = (cb - ct);
 		var rs = w - (w * uvs[6]) - ls;

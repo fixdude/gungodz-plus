@@ -1,4 +1,4 @@
-var w = Screen.width, h = Screen.height;
+var w = GScreen.width, h = GScreen.height;
 
 draw_set_alpha(alpha);
 alpha += 0.01;
@@ -16,8 +16,8 @@ draw_text(w / 2, myy, text1);
 draw_set_color(c_yellow);
 draw_text(w / 2, myy, text2);
 
-if myy > 5
+if (myy > 5)
 	myy -= 0.1;
 
-if InputPressed(UnknownEnum.Value_11)
+if (InputPressed(INPUT_VERB.PAUSE))
 	room_goto(menLevelSelect);

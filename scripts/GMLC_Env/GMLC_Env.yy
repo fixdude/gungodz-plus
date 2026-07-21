@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GMLC_Env",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GMLC_Env",
+  "parent":{
+    "name":"GMLC",
+    "path":"folders/Kinda-Extensions/GMLC.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

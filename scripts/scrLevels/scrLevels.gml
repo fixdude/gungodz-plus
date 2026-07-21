@@ -1,4 +1,4 @@
-function levelInfo(name, parTime) constructor
+function levelInfo(name/*:string*/, parTime/*:int*/) constructor
 {
 	self.name = name;
 	self.par_time = parTime;

@@ -1,10 +1,10 @@
 event_inherited();
 scrAwareness();
 
-if active == true
+if (active == true)
 {
 	var los = scrLOS();
-	if walk > 0
+	if (walk > 0)
 	{
 		if sprite_index != sprhurt && sprite_index != sprfire
 			sprite_index = sprwalk;
@@ -12,9 +12,9 @@ if active == true
 		walk -= 1 fmt;
 		motion_add(direction, 1);
 		
-		if angry == true && target != noone
+		if (angry == true && target != noone)
 		{
-			if los
+			if (los)
 			{
 				lastx = target.x;
 				lasty = target.y;
@@ -22,36 +22,36 @@ if active == true
 			else
 				motion_addf(point_direction(x, y, lastx, lasty), 0.3);
 			
-			if walk < 15
+			if (walk < 15)
 				walk = 15;
 		}
 	}
-	else if sprite_index == sprwalk
+	else if (sprite_index == sprwalk)
 		sprite_index = spridle;
 	
 	friction = 0.5;
 	
-	if speed > 1.5
+	if (speed > 1.5)
 		speed = 1.5;
 }
 
-if distance_to_object(Rocket) < 200
+if (distance_to_object(Rocket) < 200)
 {
 	var rok = instance_nearest(x, y, Rocket);
 	motion_addf(point_direction(rok.x, rok.y, x, y), 0.4);
 }
 
-if target != noone
+if (target != noone)
 {
-	if angry == true && can_shoot == true && random(2) < 1
+	if (angry == true && can_shoot == true && random(2) < 1
 	&& point_distance(x, y, target.x, target.y) > 40 && point_distance(x, y, target.x, target.y) < 600
-	&& los && collision_line(x, y, target.x, target.y, enemy, true, true) < 0 && sprite_index != sprhurt
+	&& los && collision_line(x, y, target.x, target.y, enemy, true, true) == noone && sprite_index != sprhurt)
 	{
 		glow = true;
 		alarm[5] = 5;
 		sound_play(sndFireBall);
 		
-		with instance_create(x, y, FireBall)
+		with (instance_create(x, y, FireBall))
 		{
 			direction = (point_direction(x, y, other.target.x, other.target.y) + random(12)) - 6;
 			speed = 4;

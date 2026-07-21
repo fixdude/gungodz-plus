@@ -1,4 +1,4 @@
-global.dbSettings = db_create();
+global.dbSettings = noone; /// @is {db}
 
 function scr_startup()
 {
@@ -15,8 +15,8 @@ function scr_startup()
 	catch (_error)
 		InputBindingsReset(true);
 	
-	Screen.size = db_read(global.dbSettings, 540, "screen mult");
-	Screen.setRatio(db_read(global.dbSettings, 16/9, "screen ratio"));
-	Screen.setDisplay(db_read(global.dbSettings, 0, "antialiasing"), db_read(global.dbSettings, true, "vsync"));
-	Screen.sync().apply(true);
+	GScreen.size = db_read(global.dbSettings, 540, "screen mult");
+	GScreen.setRatio(db_read(global.dbSettings, 16 / 9, "screen ratio"));
+	GScreen.setDisplay(db_read(global.dbSettings, 0, "antialiasing"), db_read(global.dbSettings, true, "vsync"));
+	GScreen.sync().apply(true);
 }

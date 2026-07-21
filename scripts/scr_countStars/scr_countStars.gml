@@ -6,11 +6,11 @@ function scr_countStars()
 	var _stars = 0;
 	var wld = 1;
 	
-	repeat NUM_WORLDS
+	repeat (NUM_WORLDS)
 	{
 		var lev = 1;
 		
-		repeat NUM_LEVELS
+		repeat (NUM_LEVELS)
 		{
 			_stars += UberCont.stars[wld, lev];
 			lev++;

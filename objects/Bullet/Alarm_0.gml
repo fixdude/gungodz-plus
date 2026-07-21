@@ -1,16 +1,17 @@
-if instance_exists(trail)
+with (instance_create(x, y, BulletTrail))
 {
-	trail.x = x;
-	trail.y = y;
-	trail.z = z;
+	xstart = other.xstart;
+	ystart = other.ystart;
+	zstart = other.trailZ;
+	z = other.trailZ;
 }
 
 instance_destroy();
 
-if enmhit == false
+if (enmhit == false)
 {
 	sound_play_3d(sndHitWall, x, y, z);
 	
-	with instance_create(x, y, BulletHit)
+	with (instance_create(x, y, BulletHit))
 		z = other.z + 8;
 }

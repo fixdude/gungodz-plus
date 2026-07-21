@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__EnvironmentClass",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__EnvironmentClass",
+  "parent":{
+    "name":"Internal",
+    "path":"folders/Kinda-Extensions/GMLC/Internal.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

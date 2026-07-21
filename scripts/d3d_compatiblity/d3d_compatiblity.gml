@@ -58,7 +58,6 @@ function d3d_start()
 	global.d3d = true;
 	gpu_set_ztestenable(true);
 	gpu_set_zwriteenable(true);
-	gpu_set_alphatestenable(true);
 	return true;
 }
 
@@ -68,6 +67,22 @@ function d3d_end()
 	global.d3d = false;
 	gpu_set_ztestenable(false);
 	gpu_set_zwriteenable(false);
-	gpu_set_alphatestenable(false);
 	return true;
+}
+
+function d3d_clear_cache()
+{
+	var f = argument_count ? argument : [
+		d3d_draw_wall_simple, d3d_draw_wall,
+		d3d_draw_floor_simple, d3d_draw_floor,
+		d3d_draw_block, d3d_draw_cone,
+		d3d_draw_cylinder, d3d_draw_ellipsoid,
+	];
+	
+	for (var i = 0; i < array_length(f); i++)
+	{
+		var s = static_get(f[i]);
+		delete s.cache;
+		s.cache = {};
+	}
 }

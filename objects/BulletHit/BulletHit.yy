@@ -14,8 +14,8 @@
     "path":"folders/Objects/Effects.yy",
   },
   "parentObjectId":{
-    "name":"plane",
-    "path":"objects/plane/plane.yy",
+    "name":"EffectParent",
+    "path":"objects/EffectParent/EffectParent.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

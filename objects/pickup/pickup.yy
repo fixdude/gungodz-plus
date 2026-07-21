@@ -36,9 +36,6 @@
     "name":"mskPickup",
     "path":"sprites/mskPickup/mskPickup.yy",
   },
-  "spriteMaskId":{
-    "name":"mskPickup",
-    "path":"sprites/mskPickup/mskPickup.yy",
-  },
+  "spriteMaskId":null,
   "visible":false,
 }

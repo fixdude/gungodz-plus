@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scrWin",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scrWin",
+  "parent":{
+    "name":"Game",
+    "path":"folders/Scripts/Game.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -13,10 +13,10 @@ musicHandle = noone;
 
 play = function(mus)
 {
-	if !audio_exists(mus)
+	if (!audio_exists(mus))
 		return;
 		
-	if sound_isplaying(musicHandle)
+	if (sound_isplaying(musicHandle))
 		sound_stop(musicHandle);
 
 	currentMusic = mus;

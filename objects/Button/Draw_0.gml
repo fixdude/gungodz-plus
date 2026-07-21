@@ -1,10 +1,10 @@
-if shine
+if (shine)
 	shine_start(x, y);
 draw_self();
-if shine
+if (shine)
 	shine_pos = shine_end(shine_pos, 13, 8 * image_speed, false);
 
-if text != noone
+if (text != noone)
 {
 	draw_set_font(fntS);
 	draw_set_halign(fa_left);

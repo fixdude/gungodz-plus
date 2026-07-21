@@ -1,4 +1,4 @@
-with instance_create(x, y, DeadHeli)
+with (instance_create(x, y, DeadHeli))
 {
 	size = other.size;
 	z = other.z;

@@ -90,7 +90,7 @@
 
 // Margin in pixels around the screen edge where gaining or losing a touch point will not register
 // "pressed" or "released". Prevents false positives when dragging on to or off of the edge of a
-// touchscreen.
+// touchGScreen.
 #macro INPUT_TOUCH_EDGE_DEADZONE  35
 
 //Default threshold values for 2D virtual buttons (thumbsticks)

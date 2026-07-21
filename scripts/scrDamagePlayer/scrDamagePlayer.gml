@@ -1,13 +1,13 @@
-function scrDamagePlayer(dmg)
+function scrDamagePlayer(dmg/*:number*/)
 {
-	if dead == false && win == false
+	if (dead == false && win == false)
 	{
 		scrShake(dmg / 5);
 		
-		if instance_exists(Boss1)
+		if (instance_exists(Boss1))
 			dmg = round(dmg * 0.7);
 		
-		if false//other.object_index == EBullet || other.object_index == FireBall
+		if (false)//(other.object_index == EBullet || other.object_index == FireBall)
 		{
 			hitx = other.xstart;
 			hity = other.ystart;

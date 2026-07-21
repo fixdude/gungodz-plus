@@ -1,5 +1,5 @@
-if win == false
+if (win == false)
 {
-	// scrWin();
+	scrWin();
 	win = true;
 }

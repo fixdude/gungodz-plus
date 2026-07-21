@@ -1,2 +1,2 @@
-if init == true
+if (init == true)
 	scrDrawHUD();

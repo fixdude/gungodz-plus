@@ -11,6 +11,6 @@ function scrSuperCredits()
 		"FRED WOOD",
 		"JUJU ADAMS",
 		""
-	]
+	];
 	things = array_length(text) - 1;
 }

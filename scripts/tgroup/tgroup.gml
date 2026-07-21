@@ -5,10 +5,9 @@
 #macro enemyGroup ("enemyGroup")
 #macro gameGroup ("gameGroup")
 
-function tgroup(texturegroup_name)
+function tgroup(texturegroup_name = undefined) /*-> (struct|undefined)*/
 {
-	static name = "";
-	tgroup.name = texturegroup_name;
+	static name = texturegroup_name;
 	
 	static status = function()
 	{
@@ -20,8 +19,8 @@ function tgroup(texturegroup_name)
 	{
 		FORCEINLINE;
 		var q = 0;
-		if argument_count < 2
-			q = texturegroup_load(tgroup.name, prefetch)
+		if (argument_count < 2)
+			q = texturegroup_load(tgroup.name, prefetch);
 		else
 		{
 			for (var i = 1; i < argument_count; i++)
@@ -34,8 +33,8 @@ function tgroup(texturegroup_name)
 	{
 		FORCEINLINE;
 		var q = -1;
-		if argument_count < 2
-			q = texturegroup_load(tgroup.name, prefetch)
+		if (argument_count < 2)
+			q = texturegroup_load(tgroup.name, prefetch);
 		else
 		{
 			while (q < 0)
@@ -44,7 +43,7 @@ function tgroup(texturegroup_name)
 				for (var i = 1; i < argument_count; i++)
 				{
 					texturegroup_load(argument[i], prefetch);
-					q -= texturegroup_get_status(argument[i]) >= texturegroup_status_loaded;
+					q -= (texturegroup_get_status(argument[i]) >= texturegroup_status_loaded);
 				}
 			}
 		}
@@ -54,7 +53,7 @@ function tgroup(texturegroup_name)
 	static unload = function()
 	{
 		FORCEINLINE;
-		if argument_count > 0
+		if (argument_count > 0)
 		{
 			for (var i = 0; i < argument_count; i++)
 				texturegroup_unload(argument[i]);
@@ -65,4 +64,5 @@ function tgroup(texturegroup_name)
 	
 	return static_get(tgroup);
 }
+
 tgroup();

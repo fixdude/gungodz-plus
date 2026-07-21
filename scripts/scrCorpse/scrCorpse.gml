@@ -1,6 +1,6 @@
-function scrCorpse()
+function scrCorpse() /*-> Corpse*/
 {
-	with instance_create(x, y, Corpse)
+	with (instance_create(x, y, Corpse))
 	{
 		size = other.size;
 		sprite_index = other.sprdead;
@@ -8,19 +8,20 @@ function scrCorpse()
 		friction = 0.2;
 		motion_add(other.direction, other.speed);
 		
-		if BackCont.gold == false
+		if (BackCont.gold == false)
 		{
-			if speed > 4
+			if (speed > 4)
 				speed = 4;
 		}
 		else
 		{
 			speed *= 1.5;
 			
-			if speed > 32
+			if (speed > 32)
 				speed = 32;
 		}
 		
 		mask_index = other.mask_index;
+		return self;
 	}
 }

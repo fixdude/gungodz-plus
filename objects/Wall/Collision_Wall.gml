@@ -1,2 +1,2 @@
-if id < other.id
+if (id < other.id)
 	instance_destroy();

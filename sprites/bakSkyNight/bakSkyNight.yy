@@ -2,9 +2,9 @@
   "$GMSprite":"v2",
   "%Name":"bakSkyNight",
   "bboxMode":0,
-  "bbox_bottom":199,
+  "bbox_bottom":99,
   "bbox_left":0,
-  "bbox_right":639,
+  "bbox_right":319,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":200,
+  "height":100,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"81f3a276-1d83-4c7f-88b5-70cb6a9f5e23","blendMode":0,"displayName":"default","isLocked":false,"name":"81f3a276-1d83-4c7f-88b5-70cb6a9f5e23","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -86,5 +86,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":640,
+  "width":320,
 }

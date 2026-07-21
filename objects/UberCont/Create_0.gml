@@ -1,5 +1,5 @@
-if use_steam
-	steam_on = steam_initialised();
+if (use_steam)
+	steam_enabled = steam_initialised();
 
 // Player variables
 p_health = 100;
@@ -9,14 +9,16 @@ tim = 0;
 totalkills = 0;
 totalstars = 0;
 global.scrn_num = 0;
+l_info = noone;
 scrLevels();
 lev = 1;
 wld = 1;
 sensitivity = 100;
 focus = true;
 
+cur = noone;
 cursor = false;
-if use_native_cursor
+if (use_native_cursor)
 {
 	cur = native_cursor_create_from_sprite(sprCursor);
 	native_cursor_set(cur);
@@ -25,9 +27,22 @@ if use_native_cursor
 
 scr_startAchievements();
 
-repeat NUM_WORLDS
+// Thanks, GMEdit
+var cr = function() /*=>*/ {
+	return array_create(NUM_WORLDS, array_create(NUM_LEVELS, 0));
+};
+plays = cr();
+beats = cr();
+kills = cr();
+items = cr();
+times = cr();
+stars = cr();
+unlok = cr();
+
+plays = array_create(NUM_WORLDS, array_create(NUM_LEVELS, 0));
+repeat (NUM_WORLDS)
 {
-	repeat NUM_LEVELS
+	repeat (NUM_LEVELS)
 	{
 		plays[wld, lev] = 0;
 		beats[wld, lev] = 0;

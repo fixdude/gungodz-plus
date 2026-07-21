@@ -1,6 +1,6 @@
-function scrTarget(obj = Player)
+function scrTarget(obj/*:Player*/ = Player)
 {
-	if instance_exists(obj)
+	if (instance_exists(obj))
 		target = instance_nearest(x, y, obj);
 	else
 	{
@@ -8,7 +8,7 @@ function scrTarget(obj = Player)
 		target = noone;
 	}
 	
-	if target.dead == true || target.win == true
+	if (target.dead == true || target.win == true)
 	{
 		angry = false;
 		target = noone;

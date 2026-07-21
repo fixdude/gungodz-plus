@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"__load_gml_spec",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"__load_gml_spec",
+  "parent":{
+    "name":"_Init",
+    "path":"folders/Kinda-Extensions/GMLC/Internal/_Init.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

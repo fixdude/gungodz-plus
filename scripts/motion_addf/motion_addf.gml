@@ -1,4 +1,5 @@
-function motion_addf(dir, speed)
+function motion_addf(dir/*:number*/, speed/*:number*/)
 {
+	FORCEINLINE;
 	motion_add(dir, speed fmt);
 }

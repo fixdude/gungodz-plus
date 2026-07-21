@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"GMLC_BatchResult",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"GMLC_BatchResult",
+  "parent":{
+    "name":"GMLC",
+    "path":"folders/Kinda-Extensions/GMLC.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

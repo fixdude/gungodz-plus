@@ -3,12 +3,12 @@ function file_delete_backup(filename)
 	var s = string_split(filename, ".", false, 1), name = s[0], ext = $".{s[1]}";
 	
 	FORCEINLINE;
-	if file_exists(name + ext)
+	if (file_exists(name + ext))
 	{
 		var _i = 9;
-		repeat 9
+		repeat (9)
 		{
-			if file_exists($"{name}_backup_{_i}{ext}")
+			if (file_exists($"{name}_backup_{_i}{ext}"))
 				file_rename($"{name}_backup_{_i}{ext}", $"{name}_backup_{_i + 1}{ext}");
 			_i--;
 		}
