@@ -87,7 +87,7 @@ function scrSave()
 	buffer_save(buff, "gg2.bin");
 	buffer_delete(buff);
 	
-	switch_save_data_commit();
+	//switch_save_data_commit();
 }
 
 function scrLoad()

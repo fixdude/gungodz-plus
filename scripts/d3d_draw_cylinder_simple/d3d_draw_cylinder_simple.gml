@@ -9,8 +9,8 @@
 /// @param {pointer.Texture|real} tex The texture to draw the cylinder with (defaults to -1 for no texture)
 /// @param {bool} closed Whether to draw the top and bottom surfaces of the cylinder or not (defaults to true)
 function d3d_draw_cylinder_simple(x1, y1, z1, x2, y2, z2, tex = -1, closed = true) {
-    static vertex = Drago3D_Internals.Vertex;
-    static format = Drago3D_Internals.format;
+    static vertex = Drago3D_Internals_Vertex;
+    static format = global.Drago3D_Internals_format;
     
     static vb = undefined;
     static vb_top = undefined;

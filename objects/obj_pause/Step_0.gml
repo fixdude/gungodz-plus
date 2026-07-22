@@ -10,8 +10,11 @@ else if (InputCheck(INPUT_VERB.PAUSE))
 		exittime += 1 fmt;
 	else
 	{
-		tgroup.unload(tileTexGroup, enemyGroup, gameGroup);
-		tgroup.loadsync(true, "menuGroup", "logoGroup");
+		texturegroup_unload(tileTexGroup);
+		texturegroup_unload(enemyGroup);
+		texturegroup_unload(gameGroup);
+		texturegroup_load(menuGroup, true);
+		texturegroup_load(logoGroup, true);
 		
 		instance_destroy();
 		instance_activate_all();

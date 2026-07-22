@@ -14,8 +14,8 @@
 /// @param {real} c The vertex color to draw the cone with (defaults to the current draw color)
 /// @param {real} a The vertex color to draw the cone with (defaults to the current draw alpha)
 function d3d_draw_cone(x1, y1, z1, x2, y2, z2, tex = -1, hrepeat = 1, vrepeat = 1, closed = true, steps = 32, c = draw_get_colour(), a = draw_get_alpha()) {
-    static vertex = Drago3D_Internals.Vertex;
-    static format = Drago3D_Internals.format;
+    static vertex = Drago3D_Internals_Vertex;
+    static format = global.Drago3D_Internals_format;
     
     static cache = { };
     static cache_bottom = { };
@@ -140,6 +140,6 @@ function d3d_draw_cone(x1, y1, z1, x2, y2, z2, tex = -1, hrepeat = 1, vrepeat = 
     matrix_set(matrix_world, current_world_matrix);
     gpu_set_texrepeat(oldrep);
     
-    Drago3D_Internals.Unarchive(archive, cache);
-    Drago3D_Internals.Unarchive(archive, cache_bottom);
+    Drago3D_Internals_Unarchive(archive, cache);
+    Drago3D_Internals_Unarchive(archive, cache_bottom);
 }

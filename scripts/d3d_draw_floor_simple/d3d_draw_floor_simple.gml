@@ -7,8 +7,8 @@
 /// @param {real} z The z coordinate of the floor
 /// @param {pointer.Texture|real} tex The texture to draw the floor with (defaults to -1 for no texture)
 function d3d_draw_floor_simple(x1, y1, x2, y2, z, tex = -1) {
-    static vertex = Drago3D_Internals.Vertex;
-    static format = Drago3D_Internals.format;
+    static vertex = Drago3D_Internals_Vertex;
+    static format = global.Drago3D_Internals_format;
     
     static vb = undefined;
     

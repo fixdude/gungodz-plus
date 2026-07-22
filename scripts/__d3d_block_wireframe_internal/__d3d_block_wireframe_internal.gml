@@ -1,6 +1,6 @@
 // Feather disable all
 function __d3d_block_wireframe_internal(vb, x1, y1, z1, x2, y2, z2, hrepeat, vrepeat, c, a) {
-    static vertex = Drago3D_Internals.Vertex;
+    static vertex = Drago3D_Internals_Vertex;
     
     vertex(vb, x1, y1, z1, 0, 0, -1, 0, 0, c, a);
     vertex(vb, x1, y2, z1, 0, 0, -1, 0, vrepeat, c, a);

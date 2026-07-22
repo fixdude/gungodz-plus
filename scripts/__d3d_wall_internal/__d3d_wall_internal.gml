@@ -1,6 +1,6 @@
 // Feather disable all
 function __d3d_wall_internal(vb, x1, y1, z1, x2, y2, z2, hrepeat, vrepeat, c, a) {
-    static vertex = Drago3D_Internals.Vertex;
+    static vertex = Drago3D_Internals_Vertex;
     
     var xdiff = x2 - x1;
     var ydiff = y2 - y1;

@@ -8,8 +8,8 @@
 /// @param {real} z2 The ending z coordinate of the ellipsoid
 /// @param {pointer.Texture|real} tex The texture to draw the ellipsoid with (defaults to -1 for no texture)
 function d3d_draw_ellipsoid_simple(x1, y1, z1, x2, y2, z2, tex = -1) {
-    static vertex = Drago3D_Internals.Vertex;
-    static format = Drago3D_Internals.format;
+    static vertex = Drago3D_Internals_Vertex;
+    static format = global.Drago3D_Internals_format;
     
     static transform = matrix_build_identity();
     static current_world_matrix = matrix_build_identity();

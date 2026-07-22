@@ -30,19 +30,18 @@ function object_get_depth(obj/*:object*/)
 	return global.__objectDepths[? obj] ?? 0;
 }
 	
+// https://github.com/YoYoGames/GameMaker-Bugs/issues/15646
+	
 /// @param {real} x X The X coordinate to create the instance at.
 /// @param {real} y Y The Y coordinate to create the instance at.
 /// @param {Asset.GMObject} obj Object The object asset to spawn.
 /// @param {Struct|Undefined} [var_struct] Variable struct to pass into the instance.
 /// @returns {Id.Instance}
-function _instance_create(x/*:number*/, y/*:number*/, obj/*:object*/, var_struct/*:any_fields_of<object>*/ = undefined)
+function instance_create(x/*:number*/, y/*:number*/, obj/*:object*/, var_struct/*:any_fields_of<object>*/ = {})
 {
-	//var myDepth = object_get_depth(obj);
-	var p = asset_get_index(object_get_name(obj));
-	var o = instance_create_depth(x, y, 0, p, var_struct);
+	var o = instance_create_depth(x, y, 0, obj, var_struct);
 	return o;
 }
-#macro instance_create _instance_create	
 
 function draw_background_ext(sprite/*:sprite*/, x/*:number*/, y/*:number*/, xscale/*:number*/, yscale/*:number*/, rot/*:number*/, col/*:color*/, alpha/*:number*/)
 {

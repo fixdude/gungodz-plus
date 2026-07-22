@@ -10,8 +10,8 @@ function d3d_model_load(filename, freeze = false) {
         return string_trim(text);
     });
     
-    static vertex = Drago3D_Internals.Vertex;
-    static format = Drago3D_Internals.format;
+    static vertex = Drago3D_Internals_Vertex;
+    static format = global.Drago3D_Internals_format;
     
     var vbuff = vertex_create_buffer();
     vertex_begin(vbuff, format);

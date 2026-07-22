@@ -1,4 +1,5 @@
-tgroup.loadsync(true, "logoGroup", "menuGroup");
+texturegroup_load(logoGroup, true);
+texturegroup_load(menuGroup, true);
 
 image_alpha = -0.2;
 grow = 1;

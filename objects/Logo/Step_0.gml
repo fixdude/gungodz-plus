@@ -7,7 +7,7 @@ if (active)
 		var t/*:TexGroup*/ = "logoGroup";
 		texturegroup_unload(t);
 		
-		instance_create_depth(x, y, 0, LevelSelect);
+		instance_create(x, y, LevelSelect);
 		active = false;
 	}
 

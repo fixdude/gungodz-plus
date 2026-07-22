@@ -6,6 +6,7 @@ function scrTarget(obj/*:Player*/ = Player)
 	{
 		angry = false;
 		target = noone;
+		return;
 	}
 	
 	if (target.dead == true || target.win == true)

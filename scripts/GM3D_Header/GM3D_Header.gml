@@ -145,7 +145,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @param {real} [epsilon] Epsilon
 		equalsEpsilon = function(rhs /*: object*/, epsilon /*: real*/ = math_get_epsilon()) /*-> bool*/ {}
 		/// @desc Applies dual quaternion exponential map to self and returns self.
-		self[$ "exp"]  = function() /*-> object*/ {}
+		self[$ "exp"] = function() /*-> object*/ {}
 		/// @desc Returns the rotation component of self.
 		getRotation = function() /*-> object*/ {}
 		/// @desc Returns the translation component of self.
@@ -170,7 +170,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Raises self to a scalar power and returns self.
 		pow = function(power /*: real*/) /*-> object*/ {}
 		/// @desc Screw-linearly interpolates self toward rhs by t and returns self.
-		scself[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		sclerp = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Sets the dual quaternion component and returns self.
 		setDual = function(dual /*: object*/) /*-> object*/ {}
 		/// @desc Sets the real quaternion component and returns self.
@@ -737,9 +737,9 @@ if (code_is_compiled() && !code_is_compiled())
 		vertexFormat = undefined; // Vertex format ID used by this mesh.
 	
 		/// @desc Gets the mesh bounding box maximum corner.
-		getBoundingBoxself[$ "max"]  = function() /*-> object*/ {}
+		getBoundingBoxMax = function() /*-> object*/ {}
 		/// @desc Gets the mesh bounding box minimum corner.
-		getBoundingBoxself[$ "min"]  = function() /*-> object*/ {}
+		getBoundingBoxMin = function() /*-> object*/ {}
 	}
 	
 	/// @param {Struct.GM3D_Mesh} mesh A GM3D_Mesh instance
@@ -792,7 +792,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @param {real} [epsilon] Epsilon
 		equalsEpsilon = function(rhs /*: object*/, epsilon /*: real*/ = math_get_epsilon()) /*-> bool*/ {}
 		/// @desc Applies quaternion exponential map to self and returns self.
-		self[$ "exp"]  = function() /*-> object*/ {}
+		self[$ "exp"] = function() /*-> object*/ {}
 		/// @desc Loads quaternion components from an array and returns self.
 		/// @param {array} source Source array
 		/// @param {int32} [offset] Offset into the array
@@ -812,7 +812,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Returns squared Euclidean length of self.
 		lengthSq = function() /*-> real*/ {}
 		/// @desc Linearly interpolates self toward rhs by t and returns self.
-		self[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		self[$ "lerp"] = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Applies quaternion logarithm map to self and returns self.
 		log = function() /*-> object*/ {}
 		/// @desc Multiplies self by rhs and returns self.
@@ -822,7 +822,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Multiplies all components by scalar s and returns self.
 		multiplyScalar = function(s /*: real*/) /*-> object*/ {}
 		/// @desc Performs normalized linear interpolation toward rhs and returns self.
-		nself[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		self[$ "lerp"] = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Normalizes self and returns self.
 		normalize = function() /*-> object*/ {}
 		/// @desc Normalizes self using custom epsilon and returns self.
@@ -831,7 +831,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Premultiplies self by lhs and returns self.
 		premultiply = function(lhs /*: object*/) /*-> object*/ {}
 		/// @desc Sets self to a random unit quaternion and returns self.
-		self[$ "random"]  = function() /*-> object*/ {}
+		self[$ "random"] = function() /*-> object*/ {}
 		/// @desc Rotates a vector by self.
 		rotate = function(vector /*: object*/) /*-> object*/ {}
 		/// @desc Rotates self toward rhs by up to maxRadiansDelta and returns self.
@@ -855,8 +855,8 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Sets the Z component.
 		setZ = function(z /*: real*/) {}
 		/// @desc Spherically interpolates self toward rhs by t and returns self.
-		sself[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
-		/// @desc Sets self to sself[$ "lerp"]  = function(a, b, t) and returns self.
+		slerp = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		/// @desc Sets self to sself[$ "lerp"] = function(a, b, t) and returns self.
 		slerpQuaternions = function(a /*: object*/, b /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Writes components to an array and returns that array.
 		/// @param {array} [target] Target
@@ -1162,7 +1162,7 @@ if (code_is_compiled() && !code_is_compiled())
 		self.y = y;
 	
 		/// @desc Returns a new vector with absolute-valued components.
-		self[$ "abs"]  = function() /*-> object*/ {}
+		self[$ "abs"] = function() /*-> object*/ {}
 		/// @desc Adds rhs component-wise to self and returns self.
 		add = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Adds scalar s to both components of self and returns self.
@@ -1178,9 +1178,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Applies a 3x3 affine transform to self and returns self.
 		applyMatrix3 = function(matrix3 /*: object*/) /*-> object*/ {}
 		/// @desc Applies component-wise ceil to self and returns self.
-		self[$ "ceil"]  = function() /*-> object*/ {}
+		self[$ "ceil"] = function() /*-> object*/ {}
 		/// @desc Clamps self component-wise between minV and maxV and returns self.
-		self[$ "clamp"]  = function(minV /*: object*/, maxV /*: object*/) /*-> object*/ {}
+		self[$ "clamp"] = function(minV /*: object*/, maxV /*: object*/) /*-> object*/ {}
 		/// @desc Clamps vector length to [minLen, maxLen] and returns self.
 		clampLength = function(minLen /*: real*/, maxLen /*: real*/) /*-> object*/ {}
 		/// @desc Clamps each self component to [minVal, maxVal] and returns self.
@@ -1208,9 +1208,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @param {real} [epsilon] Epsilon
 		equalsEpsilon = function(rhs /*: object*/, epsilon /*: real*/ = math_get_epsilon()) /*-> bool*/ {}
 		/// @desc Applies component-wise floor to self and returns self.
-		self[$ "floor"]  = function() /*-> object*/ {}
+		self[$ "floor"] = function() /*-> object*/ {}
 		/// @desc Returns a new vector containing the fractional part of each component.
-		self[$ "frac"]  = function() /*-> object*/ {}
+		self[$ "frac"] = function() /*-> object*/ {}
 		/// @desc Loads self from source[offset], source[offset + 1] and returns self.
 		/// @param {array} source Source array
 		/// @param {int32} [offset] Offset into the array
@@ -1226,19 +1226,19 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Returns squared Euclidean length of self.
 		lengthSq = function() /*-> real*/ {}
 		/// @desc Linearly interpolates self toward rhs by t and returns self.
-		self[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
-		/// @desc Sets self to self[$ "lerp"]  = function(a, b, t) and returns self.
+		self[$ "lerp"] = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		/// @desc Sets self to self[$ "lerp"] = function(a, b, t) and returns self.
 		lerpVectors = function(a /*: object*/, b /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Returns Manhattan distance from self to rhs.
 		manhattanDistanceTo = function(rhs /*: object*/) /*-> real*/ {}
 		/// @desc Returns Manhattan length of self.
 		manhattanLength = function() /*-> real*/ {}
-		/// @desc Sets self to component-wise self[$ "max"]  = function(self, rhs) and returns self.
-		self[$ "max"]  = function(rhs /*: object*/) /*-> object*/ {}
+		/// @desc Sets self to component-wise self[$ "max"] = function(self, rhs) and returns self.
+		self[$ "max"] = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Returns the larger of x and y.
 		maxComponent = function() /*-> real*/ {}
-		/// @desc Sets self to component-wise self[$ "min"]  = function(self, rhs) and returns self.
-		self[$ "min"]  = function(rhs /*: object*/) /*-> object*/ {}
+		/// @desc Sets self to component-wise self[$ "min"] = function(self, rhs) and returns self.
+		self[$ "min"] = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Returns the smaller of x and y.
 		minComponent = function() /*-> real*/ {}
 		/// @desc Multiplies self by rhs component-wise and returns self.
@@ -1255,15 +1255,15 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Returns a new projection of self onto rhs.
 		projectOnVector = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Sets self to random components in [0, 1] and returns self.
-		self[$ "random"]  = function() /*-> object*/ {}
+		self[$ "random"] = function() /*-> object*/ {}
 		/// @desc Reflects self around normal and returns self.
 		reflect = function(normal /*: object*/) /*-> object*/ {}
 		/// @desc Refracts self by normal and eta and returns self.
 		refract = function(normal /*: object*/, eta /*: real*/) /*-> object*/ {}
 		/// @desc Rotates self around center by angleRadians and returns self.
-		rotateAself[$ "round"]  = function(center /*: object*/, angleRadians /*: real*/) /*-> object*/ {}
+		rotateAround = function(center /*: object*/, angleRadians /*: real*/) /*-> object*/ {}
 		/// @desc Applies component-wise round to self and returns self.
-		self[$ "round"]  = function() /*-> object*/ {}
+		self[$ "round"] = function() /*-> object*/ {}
 		/// @desc Rounds each component toward zero and returns self.
 		roundToZero = function() /*-> object*/ {}
 		/// @desc Sets both components and returns self.
@@ -1316,7 +1316,7 @@ if (code_is_compiled() && !code_is_compiled())
 		self.z = z; // Z component.
 		
 		/// @desc Returns a vector with absolute-valued components.
-		self[$ "abs"]  = function() /*-> object*/ {}
+		self[$ "abs"] = function() /*-> object*/ {}
 		/// @desc Adds rhs component-wise and returns self.
 		add = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Adds scalar s to all components and returns self.
@@ -1342,9 +1342,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Computes barycentric interpolation using this vector, b, c, u, and v.
 		barycentric = function(b /*: object*/, c /*: object*/, u /*: real*/, v /*: real*/) /*-> object*/ {}
 		/// @desc Applies component-wise ceil and returns self.
-		self[$ "ceil"]  = function() /*-> object*/ {}
+		self[$ "ceil"] = function() /*-> object*/ {}
 		/// @desc Clamps each component between minV and maxV and returns self.
-		self[$ "clamp"]  = function(minV /*: object*/, maxV /*: object*/) /*-> object*/ {}
+		self[$ "clamp"] = function(minV /*: object*/, maxV /*: object*/) /*-> object*/ {}
 		/// @desc Clamps vector length to [minLen, maxLen] and returns self.
 		clampLength = function(minLen /*: real*/, maxLen /*: real*/) /*-> object*/ {}
 		/// @desc Clamps each component to [minVal, maxVal] and returns self.
@@ -1374,9 +1374,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @param {real} [epsilon] Epsilon
 		equalsEpsilon = function(rhs /*: object*/, epsilon /*: real*/ = math_get_epsilon()) /*-> bool*/ {}
 		/// @desc Applies component-wise floor and returns self.
-		self[$ "floor"]  = function() /*-> object*/ {}
+		self[$ "floor"] = function() /*-> object*/ {}
 		/// @desc Keeps only fractional component parts and returns self.
-		self[$ "frac"]  = function() /*-> object*/ {}
+		self[$ "frac"] = function() /*-> object*/ {}
 		/// @desc Loads components from source array and returns self.
 		/// @param {array} source Source array
 		/// @param {int32} [offset] Offset into the array
@@ -1392,19 +1392,19 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Returns squared Euclidean length.
 		lengthSq = function() /*-> real*/ {}
 		/// @desc Linearly interpolates toward rhs by t and returns self.
-		self[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
-		/// @desc Sets this vector to self[$ "lerp"]  = function(a, b, t) and returns self.
+		self[$ "lerp"] = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		/// @desc Sets this vector to self[$ "lerp"] = function(a, b, t) and returns self.
 		lerpVectors = function(a /*: object*/, b /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Returns Manhattan distance to rhs.
 		manhattanDistanceTo = function(rhs /*: object*/) /*-> real*/ {}
 		/// @desc Returns Manhattan length.
 		manhattanLength = function() /*-> real*/ {}
-		/// @desc Sets this vector to component-wise self[$ "max"]  = function(this, rhs) and returns self.
-		self[$ "max"]  = function(rhs /*: object*/) /*-> object*/ {}
+		/// @desc Sets this vector to component-wise self[$ "max"] = function(this, rhs) and returns self.
+		self[$ "max"] = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Returns largest component value.
 		maxComponent = function() /*-> real*/ {}
-		/// @desc Sets this vector to component-wise self[$ "min"]  = function(this, rhs) and returns self.
-		self[$ "min"]  = function(rhs /*: object*/) /*-> object*/ {}
+		/// @desc Sets this vector to component-wise self[$ "min"] = function(this, rhs) and returns self.
+		self[$ "min"] = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Returns smallest component value.
 		minComponent = function() /*-> real*/ {}
 		/// @desc Multiplies this vector component-wise by rhs and returns self.
@@ -1429,7 +1429,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Projects this vector onto rhs and returns self.
 		projectOnVector = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Sets each component to a random value in [0, 1] and returns self.
-		self[$ "random"]  = function() /*-> object*/ {}
+		self[$ "random"] = function() /*-> object*/ {}
 		/// @desc Sets this vector to a random unit direction and returns self.
 		randomDirection = function() /*-> object*/ {}
 		/// @desc Reflects this vector around normal and returns self.
@@ -1439,7 +1439,7 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Rejects rhs component from this vector and returns self.
 		reject = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Applies component-wise round and returns self.
-		self[$ "round"]  = function() /*-> object*/ {}
+		self[$ "round"] = function() /*-> object*/ {}
 		/// @desc Rounds each component toward zero and returns self.
 		roundToZero = function() /*-> object*/ {}
 		/// @desc Sets all components and returns self.
@@ -1517,7 +1517,7 @@ if (code_is_compiled() && !code_is_compiled())
 		self.z = z; // Z component.
 	
 		/// @desc Applies component-wise absolute value to self and returns self.
-		self[$ "abs"]  = function() /*-> object*/ {}
+		self[$ "abs"] = function() /*-> object*/ {}
 		/// @desc Adds rhs component-wise to self and returns self.
 		add = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Adds scalar s to all components and returns self.
@@ -1529,9 +1529,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Applies a 4x4 transform to self and returns self.
 		applyMatrix4 = function(matrix /*: object*/) /*-> object*/ {}
 		/// @desc Applies component-wise ceil to self and returns self.
-		self[$ "ceil"]  = function() /*-> object*/ {}
+		self[$ "ceil"] = function() /*-> object*/ {}
 		/// @desc Clamps self component-wise between minV and maxV and returns self.
-		self[$ "clamp"]  = function(minV /*: object*/, maxV /*: object*/) /*-> object*/ {}
+		self[$ "clamp"] = function(minV /*: object*/, maxV /*: object*/) /*-> object*/ {}
 		/// @desc Clamps vector length to [minLen, maxLen] and returns self.
 		clampLength = function(minLen /*: real*/, maxLen /*: real*/) /*-> object*/ {}
 		/// @desc Clamps each self component to [minVal, maxVal] and returns self.
@@ -1557,9 +1557,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @param {real} [epsilon] Epsilon
 		equalsEpsilon = function(rhs /*: object*/, epsilon /*: real*/ = math_get_epsilon()) /*-> bool*/ {}
 		/// @desc Applies component-wise floor to self and returns self.
-		self[$ "floor"]  = function() /*-> object*/ {}
+		self[$ "floor"] = function() /*-> object*/ {}
 		/// @desc Keeps only fractional component parts and returns self.
-		self[$ "frac"]  = function() /*-> object*/ {}
+		self[$ "frac"] = function() /*-> object*/ {}
 		/// @desc Loads self from source[offset..offset+3] and returns self.
 		/// @param {array} source Source array
 		/// @param {int32} [offset] Offset into the array
@@ -1575,17 +1575,17 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @desc Returns squared Euclidean length of self.
 		lengthSq = function() /*-> real*/ {}
 		/// @desc Linearly interpolates self toward rhs by t and returns self.
-		self[$ "lerp"]  = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
-		/// @desc Sets self to self[$ "lerp"]  = function(a, b, t) and returns self.
+		self[$ "lerp"] = function(rhs /*: object*/, t /*: real*/) /*-> object*/ {}
+		/// @desc Sets self to self[$ "lerp"] = function(a, b, t) and returns self.
 		lerpVectors = function(a /*: object*/, b /*: object*/, t /*: real*/) /*-> object*/ {}
 		/// @desc Returns Manhattan length of self.
 		manhattanLength = function() /*-> real*/ {}
-		/// @desc Sets self to component-wise self[$ "max"]  = function(self, rhs) and returns self.
-		self[$ "max"]  = function(rhs /*: object*/) /*-> object*/ {}
+		/// @desc Sets self to component-wise self[$ "max"] = function(self, rhs) and returns self.
+		self[$ "max"] = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Returns the largest component value.
 		maxComponent = function() /*-> real*/ {}
-		/// @desc Sets self to component-wise self[$ "min"]  = function(self, rhs) and returns self.
-		self[$ "min"]  = function(rhs /*: object*/) /*-> object*/ {}
+		/// @desc Sets self to component-wise self[$ "min"] = function(self, rhs) and returns self.
+		self[$ "min"] = function(rhs /*: object*/) /*-> object*/ {}
 		/// @desc Returns the smallest component value.
 		minComponent = function() /*-> real*/ {}
 		/// @desc Multiplies self by rhs component-wise and returns self.
@@ -1600,9 +1600,9 @@ if (code_is_compiled() && !code_is_compiled())
 		/// @param {real} [epsilon] Epsilon
 		normalizeSafe = function(epsilon /*: real*/ = math_get_epsilon()) /*-> object*/ {}
 		/// @desc Sets each component to a random value in [0, 1] and returns self.
-		self[$ "random"]  = function() /*-> object*/ {}
+		self[$ "random"] = function() /*-> object*/ {}
 		/// @desc Applies component-wise round to self and returns self.
-		self[$ "round"]  = function() /*-> object*/ {}
+		self[$ "round"] = function() /*-> object*/ {}
 		/// @desc Rounds each component toward zero and returns self.
 		roundToZero = function() /*-> object*/ {}
 		/// @desc Sets all components and returns self.

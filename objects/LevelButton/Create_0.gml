@@ -29,10 +29,12 @@ onPress = function()
 	var roomId = asset_get_index(roomName);
 	if (roomId != -1)
 	{
-		tgroup(gameGroup).loadsync();
-		tgroup.load(true, gameGroup, tileTexGroup, enemyGroup);
+		texturegroup_load(gameGroup, true);
+		texturegroup_load(tileTexGroup, true);
+		texturegroup_load(enemyGroup, true);
 		
-		tgroup.unload(menuGroup, logoGroup);
+		texturegroup_unload(menuGroup);
+		texturegroup_unload(logoGroup);
 		
 		var mus = asset_get_index("sndLEVEL" + string(wld));
 		if (room == lev5_1)

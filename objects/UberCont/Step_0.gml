@@ -1,4 +1,4 @@
-scr_updateAchievements();
+//scr_updateAchievements();
 tim += 1 fmt;
 
 InputPlayerSetBlocked(is_keyboard_used_debug_overlay() || is_mouse_over_debug_overlay());
@@ -31,7 +31,7 @@ if (InputPressed(INPUT_VERB.PAUSE) || !_focus)
 		instance_deactivate_all(true);
 		instance_activate_object(StatCont);
 		instance_activate_object(__InputUpdateController);
-		instance_create_depth(0, 0, 0, obj_pause);
+		instance_create(0, 0, obj_pause);
 	}
 }
 
