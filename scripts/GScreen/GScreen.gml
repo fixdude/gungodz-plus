@@ -9,7 +9,7 @@ enum SCREEN_ANCHOR
 	VCENTER = 0x0011
 }
 
-function __getAnchorX(anchor, w = ___INTERNALSCREENREF.width, pad = 0)
+function __getAnchorX(anchor, w = width, pad = 0)
 {
 	if (anchor & SCREEN_ANCHOR.HCENTER)
 		return (w / 2);
@@ -19,7 +19,7 @@ function __getAnchorX(anchor, w = ___INTERNALSCREENREF.width, pad = 0)
 		return w - pad;
 }
 
-function __getAnchorY(anchor, h = ___INTERNALSCREENREF.height, pad = 0)
+function __getAnchorY(anchor, h = height, pad = 0)
 {
 	if (anchor & SCREEN_ANCHOR.VCENTER)
 		return (h / 2);
@@ -44,162 +44,151 @@ function __screen_trace()
 	}
 }
 
-#macro ___INTERNALSCREENREF global.__internalScreenStatic
+#macro ___INTERNALSCREENMAIN global.__internalScreenStatic
 /// @return {Struct.__internalScreen}
-function __internalScreen()
+function __internalScreen() constructor
 {
-	static
-		width = 0, height = 0,
-		gui_width = 0, gui_height = 0,
-		base_width = 0, base_height = 0,
-		aspect_ratio = 1.6, size = 200,
-		vsync = false, antialiasing = 0,
-		resizing = false, dragging = false,
-		display_orientation = display_get_orientation();
+	width = 0; height = 0;
+	gui_width = 0; gui_height = 0;
+	base_width = 0; base_height = 0;
+	aspect_ratio = 1.6; size = 200;
+	vsync = false; antialiasing = 0;
+	resizing = false; dragging = false;
+	display_orientation = display_get_orientation();
 	
-	static defaults = function(vs, swap_portrait = true)
+	defaults = function(vs, swap_portrait = true)
 	{
-		with (___INTERNALSCREENREF)
-		{
-			var wport = window_get_width(), hport = window_get_height();
-			aspect_ratio = wport / hport;
-			setVSync(vs);
-			sync(false, swap_portrait);
-			base_width = wport;
-			base_height = hport;
-			getOrientation();
-		}
+		var wport = window_get_width(), hport = window_get_height();
+		aspect_ratio = wport / hport;
+		setVSync(vs);
+		sync(false, swap_portrait);
+		base_width = wport;
+		base_height = hport;
+		getOrientation();
 	}
 
-	static sync = function(from_size = false, swap_portrait = true)
+	sync = function(from_size = false, swap_portrait = true)
 	{
-		with (___INTERNALSCREENREF)
+		antialiasing = display_aa;
+		vsync &= SCREEN_VSYNC_IS_SUPPORTED;
+		
+		if (from_size == false)
 		{
-			antialiasing = display_aa;
-			vsync &= SCREEN_VSYNC_IS_SUPPORTED;
-			
-			if (from_size == false)
-			{
-				width = min(aspect_ratio * size, display_get_width());
-				height = min(size, display_get_height());
-			}
-			else
-			{
-				aspect_ratio = width / height;
-				size = height;
-			}
-			
-			display_orientation = getOrientation();
-			
-			// *OS will always handle flipping by itself
-			if (swap_portrait == true
-			&& (display_orientation == display_portrait || display_orientation == display_portrait_flipped))
-			{
-				// Bitwise XOR swap
-				width = width ^ height;
-				height = width ^ height;
-				width = width ^ height;
-			}
-			
-			return self;
+			width = min(aspect_ratio * size, display_get_width());
+			height = min(size, display_get_height());
 		}
+		else
+		{
+			aspect_ratio = width / height;
+			size = height;
+		}
+		
+		display_orientation = getOrientation();
+		
+		// *OS will always handle flipping by itself
+		if (swap_portrait == true
+		&& (display_orientation == display_portrait || display_orientation == display_portrait_flipped))
+		{
+			// Bitwise XOR swap
+			width = width ^ height;
+			height = width ^ height;
+			width = width ^ height;
+		}
+		
+		return self;
 	}
 	
-	static apply = function(center = false, reset_gui = true)
+	apply = function(center = false, reset_gui = true)
 	{
 		if (!window_get_fullscreen())
 			window_restore();
-			
-		with (___INTERNALSCREENREF)
-		{
-			camera_set_view_size(view_camera[0], width, height);
-			view_set_wport(0, width);
-			view_set_hport(0, height);
-		
-			__screen_trace("apply: Width: ", width, ", Height: ", height);
-			surface_resize(application_surface, width, height);
-		
-			window_set_size(width, height);
-			if (center)
-				window_center();
-			
-			if (reset_gui)
-				display_set_gui_maximise(___INTERNALSCREENREF.width / base_width, ___INTERNALSCREENREF.height / base_height);
 
-			return self;
-		}
+		camera_set_view_size(view_camera[0], width, height);
+		view_set_wport(0, width);
+		view_set_hport(0, height);
+	
+		__screen_trace("apply: Width: ", width, ", Height: ", height);
+		surface_resize(application_surface, width, height);
+	
+		window_set_size(width, height);
+		if (center)
+			window_center();
+		
+		if (reset_gui)
+			display_set_gui_maximise(width / base_width, height / base_height);
+
+		return self;
 	}
 	
-	static setScreenSize = function(w, h)
+	setScreenSize = function(w, h)
 	{
-		___INTERNALSCREENREF.aspect_ratio = max(w, h) / min(w, h);
-		return ___INTERNALSCREENREF;
+		aspect_ratio = max(w, h) / min(w, h);
+		return self;
 	}
 	
-	static setRatio = function(ratio)
+	setRatio = function(ratio)
 	{
 		if (is_array(ratio))
-			___INTERNALSCREENREF.aspect_ratio = ratio[0] * (1 / ratio[1]);
+			aspect_ratio = ratio[0] * (1 / ratio[1]);
 		if (is_numeric(ratio))
-			___INTERNALSCREENREF.aspect_ratio = ratio;
-		return ___INTERNALSCREENREF;
+			aspect_ratio = ratio;
+		return self;
 	}
 	
-	static getOrientation = function()
+	getOrientation = function()
 	{
 		var s;
 		if (os_browser == true)
 			s = browser_width < browser_height;
 		else
 			s = display_get_orientation();
-		___INTERNALSCREENREF.display_orientation = s;
+		display_orientation = s;
 		return s;
 	}
 	
-	static getRatio = function()
+	getRatio = function()
 	{
-		var s = ___INTERNALSCREENREF.aspect_ratio;
+		var s = aspect_ratio;
 		while (s != round(s))
 			s *= 10;
 		
-		return [s, s / ___INTERNALSCREENREF.aspect_ratio];
+		return [s, s / aspect_ratio];
 	}
 	
-	static setAA = function(aa)
+	setAA = function(aa)
 	{
-		display_reset(aa, ___INTERNALSCREENREF.vsync);
-		___INTERNALSCREENREF.antialiasing = aa;
-		return ___INTERNALSCREENREF;
+		display_reset(aa, vsync);
+		antialiasing = aa;
+		return self;
 	}
 	
-	static setVSync = function(vs)
+	setVSync = function(vs)
 	{
 		if (!SCREEN_VSYNC_IS_SUPPORTED)
 		{
 			__screen_trace("setVSync: WARNING: VSync is not supported on this device.");
-			return ___INTERNALSCREENREF;
+			return self;
 		}
 		
 		display_reset(display_aa, vs);
-		___INTERNALSCREENREF.vsync = vs;
-		return ___INTERNALSCREENREF;
+		vsync = vs;
+		return self;
 	}
 	
-	static setDisplay = function(aa, vs)
+	setDisplay = function(aa, vs)
 	{
 		if (!SCREEN_VSYNC_IS_SUPPORTED && vs == true)
 			__screen_trace("setDisplay: WARNING: VSync is not supported on this device.");
 		else
-			___INTERNALSCREENREF.vsync = vs;
+			vsync = vs;
 		
 		display_reset(aa, vs);
-		___INTERNALSCREENREF.antialiasing = aa;
-		return ___INTERNALSCREENREF;
+		antialiasing = aa;
+		return self;
 	}
 	
-	return static_get(__internalScreen);
+	return self;
 }
 
-__internalScreen();
-global.__internalScreenStatic = static_get(__internalScreen);
+___INTERNALSCREENMAIN = new __internalScreen();
 __GScreenConfig();

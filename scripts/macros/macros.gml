@@ -23,18 +23,16 @@ globalvar steam_enabled; steam_enabled = false;
 
 #region Compatibility
 
-global.__objectDepths = ds_map_create();
-function object_get_depth(obj/*:object*/)
+// https://github.com/YoYoGames/GameMaker-Bugs/issues/15646
+	
+/// @param {real} x X The X coordinate to create the instance at.
+/// @param {real} y Y The Y coordinate to create the instance at.
+/// @param {Asset.GMObject} obj Object The object asset to spawn.
+/// @param {Struct|Undefined} [var_struct] Variable struct to pass into the instance.
+/// @returns {Id.Instance}
+function instance_create(x/*:number*/, y/*:number*/, obj/*:object*/, var_struct/*:any_fields_of<object>*/ = {})
 {
-	FORCEINLINE;
-	var d = global.__objectDepths[? obj];
-	return d == undefined ? 0 : d;
-}
-
-function instance_create(x/*:number*/, y/*:number*/, obj/*:object*/, var_struct/*:any_fields_of<object>*/ = undefined)
-{
-	var myDepth = object_get_depth(obj);
-	return instance_create_depth(x, y, myDepth, obj, var_struct);
+	return instance_create_depth(x, y, 0, obj, var_struct);
 }
 
 function draw_background_ext(sprite/*:sprite*/, x/*:number*/, y/*:number*/, xscale/*:number*/, yscale/*:number*/, rot/*:number*/, col/*:color*/, alpha/*:number*/)

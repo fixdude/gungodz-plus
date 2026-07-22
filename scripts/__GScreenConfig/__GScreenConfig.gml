@@ -3,7 +3,7 @@ function __GScreenConfig()
 	// Do whatever you want here to start up the Screen extension
 	// You can change the name of this macro if you want, to prevent conflicts incase you already
 	// have an object named Screen or some other asset. It's a pretty generic name
-	#macro GScreen global.__internalScreenStatic
+	#macro GScreen ___INTERNALSCREENMAIN
 	
 	// VSYNC INFORMATION:
 	// There is no getter in base GM yet (There should have been one already)

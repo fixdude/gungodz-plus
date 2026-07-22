@@ -12,5 +12,5 @@ function scr_saveOptions()
 		game_version: "2.0.4.0"
 	});
 	db_debug_save(global.dbSettings, "config.json", true);
-	switch_save_data_commit();
+	//switch_save_data_commit();
 }
