@@ -7,10 +7,10 @@ if (active)
 		var t/*:TexGroup*/ = "logoGroup";
 		texturegroup_unload(t);
 		
-		instance_create(x, y, LevelSelect);
+		instance_create_depth(x, y, 0, LevelSelect);
 		active = false;
 	}
 
-	if is_desktop && InputPressed(INPUT_VERB.PAUSE)
+	if (is_desktop && InputPressed(INPUT_VERB.PAUSE))
 		game_end();
 }

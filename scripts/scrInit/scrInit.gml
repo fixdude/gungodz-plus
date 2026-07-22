@@ -22,4 +22,3 @@ function scrInit()
 	with (BarrelPipe)
 		instance_destroy();
 }
-

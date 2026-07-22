@@ -15,8 +15,8 @@ texturegroup_set_mode(true, GM_build_type == "run", sprSecret);
 var q/*:input*/ = INPUT_VERB.LEFT;
 
 #macro is_desktop (os_type == os_windows || os_type == os_linux || os_type == os_macosx)
-#macro use_native_cursor (os_type == os_windows && extension_exists("native_cursor"))
-#macro use_steam extension_exists("Steamworks")
+#macro use_native_cursor (extension_exists("native_cursor") && false)
+#macro use_steam (extension_exists("Steamworks") && false)
 #macro FORCEINLINE gml_pragma("forceinline")
 
 globalvar steam_enabled; steam_enabled = false;
@@ -27,15 +27,22 @@ global.__objectDepths = ds_map_create();
 function object_get_depth(obj/*:object*/)
 {
 	FORCEINLINE;
-	var d = global.__objectDepths[? obj];
-	return d == undefined ? 0 : d;
+	return global.__objectDepths[? obj] ?? 0;
 }
-
-function instance_create(x/*:number*/, y/*:number*/, obj/*:object*/, var_struct/*:any_fields_of<object>*/ = undefined)
+	
+/// @param {real} x X The X coordinate to create the instance at.
+/// @param {real} y Y The Y coordinate to create the instance at.
+/// @param {Asset.GMObject} obj Object The object asset to spawn.
+/// @param {Struct|Undefined} [var_struct] Variable struct to pass into the instance.
+/// @returns {Id.Instance}
+function _instance_create(x/*:number*/, y/*:number*/, obj/*:object*/, var_struct/*:any_fields_of<object>*/ = undefined)
 {
-	var myDepth = object_get_depth(obj);
-	return instance_create_depth(x, y, myDepth, obj, var_struct);
+	//var myDepth = object_get_depth(obj);
+	var p = asset_get_index(object_get_name(obj));
+	var o = instance_create_depth(x, y, 0, p, var_struct);
+	return o;
 }
+#macro instance_create _instance_create	
 
 function draw_background_ext(sprite/*:sprite*/, x/*:number*/, y/*:number*/, xscale/*:number*/, yscale/*:number*/, rot/*:number*/, col/*:color*/, alpha/*:number*/)
 {

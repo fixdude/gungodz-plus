@@ -28,9 +28,9 @@ if (_next)
 	d3d_end();
 	
 	if (!instance_exists(UberCont))
-		instance_create(x, y, UberCont);
+		instance_create_depth(x, y, 0, UberCont);
 	if (!instance_exists(MusCont))
-		instance_create(x, y, MusCont);
+		instance_create_depth(x, y, 0, MusCont);
 	
 	if (file_exists(working_directory + "gg.sav"))
 		scrLoad();
